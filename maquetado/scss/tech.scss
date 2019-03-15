@@ -1,0 +1,45 @@
+.tech{
+  height: 300px;
+  width: 300px;
+}
+
+.tech-border {
+  height: 300px;
+  width: 200px;
+  border: 1px solid $earls-green;
+  border-radius: 10px;
+  position: relative;
+  left: -20px;
+  top: -20px;
+}
+
+
+.tech-inside{
+  align-items: center;
+  background-color: $earls-green;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 200px;
+
+  .external-border {
+
+  }
+
+  .tech-image {
+    height: $tech-logo-size;
+    width: $tech-logo-size;
+    margin: 10px;
+  }
+
+  .tech-text-title{
+    font-size: $text-medium;
+    text-align: center;
+  }
+  .tech-text{
+    font-size: $text-small;
+    text-align: center;
+    margin: 10px;
+  }
+}
