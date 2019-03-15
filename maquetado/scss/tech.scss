@@ -1,37 +1,40 @@
 
-.tech-border {
-  border: 1px solid $earls-green;
-  border-radius: 7px;
-  height: 270px;
+.tech {
   position: relative;
-  width: 180px;
 
-  .tech-inside{
+  &::before{
+    border: 1px solid $earls-green;
+    border-radius: 7px;
+    height: 280px;
+    position: absolute;
+    width: 190px;
+  }
+
+  .tech-inside {
     align-items: center;
     background-color: $earls-green;
     border-radius: 7px;
     display: flex;
     flex-direction: column;
     height: 280px;
-    left: 5px;
     position: absolute;
-    top: 5px;
+    text-align: center;
     width: 190px;
-    
+
     .tech-image {
       height: $tech-logo-size;
       margin: 10px;
       width: $tech-logo-size;
     }
   
-    .tech-text-title{
+    .tech-text-title {
       font-size: $text-medium;
-      text-align: center;
     }
-    .tech-text{
+
+    p,
+    span {
       font-size: $text-small;
       margin: 10px;
-      text-align: center;
     }
   }
 }
