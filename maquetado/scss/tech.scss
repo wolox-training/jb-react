@@ -1,43 +1,37 @@
-.tech{
-  height: 300px;
-  width: 300px;
-}
 
 .tech-border {
-  height: 300px;
-  width: 200px;
   border: 1px solid $earls-green;
-  border-radius: 10px;
+  border-radius: 7px;
+  height: 270px;
   position: relative;
-}
+  width: 180px;
 
-
-.tech-inside{
-  align-items: center;
-  background-color: $earls-green;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  height: 300px;
-  width: 200px;
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
+  .tech-inside{
+    align-items: center;
+    background-color: $earls-green;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    left: 5px;
+    position: absolute;
+    top: 5px;
+    width: 190px;
+    
+    .tech-image {
+      height: $tech-logo-size;
+      margin: 10px;
+      width: $tech-logo-size;
+    }
   
-
-  .tech-image {
-    height: $tech-logo-size;
-    width: $tech-logo-size;
-    margin: 10px;
-  }
-
-  .tech-text-title{
-    font-size: $text-medium;
-    text-align: center;
-  }
-  .tech-text{
-    font-size: $text-small;
-    text-align: center;
-    margin: 10px;
+    .tech-text-title{
+      font-size: $text-medium;
+      text-align: center;
+    }
+    .tech-text{
+      font-size: $text-small;
+      margin: 10px;
+      text-align: center;
+    }
   }
 }

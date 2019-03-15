@@ -1,7 +1,8 @@
 
-.titles {
+.title-text {
   align-items: center;
   display: flex;
+  font-size: $text-big;
 
   &::before {
     background-image: url("assets/triangle.svg");
@@ -12,9 +13,5 @@
     position: relative;
     width: $title-decoration-width;
     z-index: -1;
-  }
-
-  .title-text {
-    font-size: $text-big;
   }
 }
