@@ -6,25 +6,27 @@
   display: flex;
   flex-direction: column;
   height: $tech-height;
-  position: absolute;
+  position: relative;
   text-align: center;
   width: $tech-width;
 
-  &::before{
+  &::after{
     border: 1px solid $earls-green;
     border-radius: 7px;
-    height: $tech-height;
+    content: '';
+    height: $tech-height - 1px;
     position: absolute;
-    width: $tech-width;
+    width: $tech-width - 1px;
+    right: 5px;
+    bottom: 5px;
   }
 
   .tech-image {
-    height: $tech-logo-size;
     margin: 10px;
     width: $tech-logo-size;
   }
 
-  .tech-text-title {
+  h3 {
     font-size: $text-medium;
   }
 
