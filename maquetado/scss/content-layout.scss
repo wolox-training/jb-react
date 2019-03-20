@@ -1,9 +1,15 @@
 .content-layout{
-    padding: 80px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
 
-    .techs-container{
-        display: flex;
-        flex-wrap: wrap;
-        padding: 20px 90px;
+    .tools{
+        width: 1000px;
+
+        .techs-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
     }
 }
