@@ -1,7 +1,6 @@
 @mixin tech-properties(){
   border: 1px solid $earls-green;
   border-radius: 7px;
-  height: $tech-height;
   width: $tech-width;
 }
 
@@ -20,6 +19,7 @@
     @include tech-properties();
     bottom: 5px;
     content: '';
+    height: 100%;
     position: absolute;
     right: 5px;
   }
