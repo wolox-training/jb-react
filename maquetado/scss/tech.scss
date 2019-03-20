@@ -5,9 +5,9 @@
   &::before{
     border: 1px solid $earls-green;
     border-radius: 7px;
-    height: 280px;
+    height: $tech-height;
     position: absolute;
-    width: 190px;
+    width: $tech-width;
   }
 
   .tech-inside {
@@ -16,10 +16,10 @@
     border-radius: 7px;
     display: flex;
     flex-direction: column;
-    height: 280px;
+    height: $tech-height;
     position: absolute;
     text-align: center;
-    width: 190px;
+    width: $tech-width;
 
     .tech-image {
       height: $tech-logo-size;
