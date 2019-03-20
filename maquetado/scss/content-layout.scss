@@ -1,11 +1,22 @@
 .content-layout{
-    align-items: center;
-    flex-direction: column;
-    display: flex;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
 
-    .techs-container{
+  .tools-container{
+    max-width: 1200px;
+    .tools {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 50px;
+
+      .techs-container {
+        padding: 10px 80px;
         align-content: center;
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
-    }
+      }
+    }  
+  }
+}
