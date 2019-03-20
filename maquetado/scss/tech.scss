@@ -1,6 +1,14 @@
 
 .tech {
-  position: relative;
+  align-items: center;
+  background-color: $earls-green;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  height: $tech-height;
+  position: absolute;
+  text-align: center;
+  width: $tech-width;
 
   &::before{
     border: 1px solid $earls-green;
@@ -10,31 +18,19 @@
     width: $tech-width;
   }
 
-  .tech-inside {
-    align-items: center;
-    background-color: $earls-green;
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-    height: $tech-height;
-    position: absolute;
-    text-align: center;
-    width: $tech-width;
+  .tech-image {
+    height: $tech-logo-size;
+    margin: 10px;
+    width: $tech-logo-size;
+  }
 
-    .tech-image {
-      height: $tech-logo-size;
-      margin: 10px;
-      width: $tech-logo-size;
-    }
-  
-    .tech-text-title {
-      font-size: $text-medium;
-    }
+  .tech-text-title {
+    font-size: $text-medium;
+  }
 
-    p,
-    span {
-      font-size: $text-small;
-      margin: 10px;
-    }
+  p,
+  span {
+    font-size: $text-small;
+    margin: 10px;
   }
 }
