@@ -3,14 +3,10 @@
     flex-direction: column;
     display: flex;
 
-    .tools{
-        width: 1000px;
-
-        .techs-container{
-            align-content: center;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
+    .techs-container{
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
     }
 }
