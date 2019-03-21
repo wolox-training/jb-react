@@ -1,16 +1,23 @@
 .footer {
+    align-items: center;
     background-color: $cerulean;
+    display: flex;
+    flex-direction: column;
     height: 150px;
+    justify-content: space-around;
 
     .footer-text {
-
+        color: $white;
+        font-size: $text-big
     }
 
     .footer-img {
 
     }
 
-    .footer.copyright {
-
+    .footer-copyright {
+        align-self: flex-end;
+        color: $white;
+        font-size: $text-small
     }
 }
