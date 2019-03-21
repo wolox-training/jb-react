@@ -15,6 +15,11 @@
   position: relative;
   text-align: center;
 
+  &:hover::before {
+    bottom: -8px;
+    right: -8px;
+  }
+
   &::before {
     @include tech-properties();
     bottom: 5px;
@@ -22,6 +27,7 @@
     height: 100%;
     position: absolute;
     right: 5px;
+    transition: bottom 0.5s linear, right 0.5s linear;
   }
 
   .tech-image {
