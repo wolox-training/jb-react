@@ -1,0 +1,40 @@
+@mixin tech-properties(){
+  border: 1px solid $earls-green;
+  border-radius: 7px;
+  width: $tech-width;
+}
+
+.tech {
+  @include tech-properties();
+  align-items: center;
+  background-color: $earls-green;
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  padding: 15px;
+  position: relative;
+  text-align: center;
+
+  &::before{
+    @include tech-properties();
+    bottom: 5px;
+    content: '';
+    height: 100%;
+    position: absolute;
+    right: 5px;
+  }
+
+  .tech-image {
+    height: $tech-logo-size;
+    margin-bottom: 10px;
+  }
+
+  .tech-title {
+    font-size: $text-medium;
+  }
+
+  .tech-text {
+    font-size: $text-small;
+    margin-top: 10px;
+  }
+}
