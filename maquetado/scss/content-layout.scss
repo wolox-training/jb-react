@@ -2,7 +2,8 @@
   align-items: center;
   flex-direction: column;
   display: flex;
-  padding-top: $nav-height + 20px;
+  margin-top: $nav-height;
+  padding-top: 20px;
 
   .tools-container {
     max-width: 1300px;
