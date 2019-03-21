@@ -1,21 +1,15 @@
-.content-layout{
+.content-layout {
   align-items: center;
   flex-direction: column;
   display: flex;
 
-  .tools-container{
+  .tools-container {
     max-width: 1300px;
-    .tools {
+  
+    .techs-container {
       display: flex;
-      flex-direction: column;
-      margin-bottom: 50px;
-
-      .techs-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        padding: 10px 80px;
-      }
-    }  
+      flex-wrap: wrap;
+      padding: 10px 80px;
+    }
   }
 }
