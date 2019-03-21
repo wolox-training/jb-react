@@ -1,4 +1,4 @@
-@mixin tech-properties(){
+@mixin tech-properties() {
   border: 1px solid $earls-green;
   border-radius: 7px;
   width: $tech-width;
@@ -15,7 +15,7 @@
   position: relative;
   text-align: center;
 
-  &::before{
+  &::before {
     @include tech-properties();
     bottom: 5px;
     content: '';
@@ -26,6 +26,7 @@
 
   .tech-image {
     height: $tech-logo-size;
+    max-width: 100%;
     margin-bottom: 10px;
   }
 
