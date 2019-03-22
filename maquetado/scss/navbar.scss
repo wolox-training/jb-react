@@ -1,3 +1,10 @@
+@media only screen and (max-width: 1024px) {
+
+  .navbar-title {
+    display:none;
+  }
+}
+
 .navbar {
   align-items: center;
   background-color: $white;
