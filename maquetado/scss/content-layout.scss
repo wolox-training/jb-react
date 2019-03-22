@@ -29,12 +29,21 @@
   .content-layout {
     align-items: center;
 
-    .tech-container {
-      grid-template-columns: $tech-width;
-      grid-template-rows: repeat(9,1fr);
+    .techs-container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
 
       .tech:first-child {
-        border-right: 19px solid $earls-green;
+        border-right: 0;
+      }
+
+      & > * {
+        border-bottom: 3px solid $earls-green;
+      }
+      
+      .tech:last-child {
+        border-bottom: 0;
       }
     }
   }
