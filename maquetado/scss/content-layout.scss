@@ -20,3 +20,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 1024px){
+
+  .content-layout {
+    align-items: center;
+
+    .tech-container {
+      grid-template-columns: $tech-width;
+      grid-template-rows: repeat(9,1fr);
+
+      .tech:first-child {
+        border-right: 19px solid $earls-green;
+      }
+    }
+  }
+}
