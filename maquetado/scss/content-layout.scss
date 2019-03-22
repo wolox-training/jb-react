@@ -5,13 +5,9 @@
   margin-top: $nav-height;
   padding-top: 20px;
 
-  .tools-container {
-    max-width: 1300px;
-  
-    .techs-container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 50px 80px;
-    }
+  .techs-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 80px;
   }
 }
