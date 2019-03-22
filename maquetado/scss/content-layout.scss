@@ -1,13 +1,18 @@
 .content-layout {
-  align-items: center;
-  flex-direction: column;
-  display: flex;
   margin-top: $nav-height;
   padding-top: 20px;
 
   .techs-container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 50px 80px;
+    align-items: center;
+    display: grid;
+    grid-gap: 5px 5px;
+    grid-template-columns:  repeat(3, $tech-width);
+    grid-template-rows: repeat(2,auto);
+    justify-content: center;
+
+    .tech:first-child {
+      border-right: 3px solid $earls-green;
+      grid-row: 1/3;
+    }
   }
 }

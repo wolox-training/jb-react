@@ -1,7 +1,6 @@
 
 .tech {
   align-items: center;
-  border-radius: 7px;
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -11,8 +10,8 @@
   width: $tech-width;
 
   .tech-image {
-    height: $tech-logo-size;
-    max-width: 100%;
+    width: $tech-logo-size;
+    max-height: $tech-logo-size;
     margin-bottom: 10px;
   }
 
