@@ -1,6 +1,9 @@
 .content-layout {
-  margin-top: $nav-height;
+  display: flex;
+  flex-direction: column;
+  margin: $nav-height auto 0 auto;
   padding-top: 20px;
+  max-width: 1200px;
 
   .techs-container {
     align-items: stretch;
@@ -9,6 +12,7 @@
     grid-template-columns:  repeat(3, $tech-width);
     grid-template-rows: repeat(2,1fr);
     justify-content: center;
+    margin-bottom: 50px;
 
     .tech:first-child {
       border-right: 3px solid $earls-green;
