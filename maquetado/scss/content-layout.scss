@@ -3,11 +3,11 @@
   padding-top: 20px;
 
   .techs-container {
-    align-items: center;
+    align-items: stretch;
     display: grid;
     grid-gap: 5px 5px;
     grid-template-columns:  repeat(3, $tech-width);
-    grid-template-rows: repeat(2,auto);
+    grid-template-rows: repeat(2,1fr);
     justify-content: center;
 
     .tech:first-child {
