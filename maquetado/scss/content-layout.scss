@@ -9,11 +9,11 @@
     align-items: stretch;
     display: grid;
     grid-gap: 5px 5px;
-    grid-template-columns:  repeat(3, $tech-width);
-    grid-template-rows: repeat(2,1fr);
     grid-template-areas:
     "main . ."
     "main . .";
+    grid-template-columns:  repeat(3, $tech-width);
+    grid-template-rows: repeat(2,1fr);
     justify-content: center;
     margin-bottom: 50px;
 
