@@ -1,34 +1,14 @@
-@mixin tech-properties() {
-  border: 1px solid $earls-green;
-  border-radius: 7px;
-  width: $tech-width;
-}
 
 .tech {
-  @include tech-properties();
   align-items: center;
-  background-color: $earls-green;
+  border-radius: 7px;
   display: flex;
   flex-direction: column;
   margin: 15px;
   padding: 15px;
   position: relative;
   text-align: center;
-
-  &:hover::before {
-    bottom: -8px;
-    right: -8px;
-  }
-
-  &::before {
-    @include tech-properties();
-    bottom: 5px;
-    content: '';
-    height: 100%;
-    position: absolute;
-    right: 5px;
-    transition: bottom 0.5s linear, right 0.5s linear;
-  }
+  width: $tech-width;
 
   .tech-image {
     height: $tech-logo-size;
