@@ -38,12 +38,8 @@
         border-right: 0;
       }
 
-      & > * {
+      .tech:not(:last-child) {
         border-bottom: 3px solid $earls-green;
-      }
-      
-      .tech:last-child {
-        border-bottom: 0;
       }
     }
   }
