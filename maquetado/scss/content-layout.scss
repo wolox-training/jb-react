@@ -1,17 +1,25 @@
 .content-layout {
-  align-items: center;
-  flex-direction: column;
   display: flex;
-  margin-top: $nav-height;
+  flex-direction: column;
+  margin: $nav-height auto 0 auto;
   padding-top: 20px;
+  max-width: 1200px;
 
-  .tools-container {
-    max-width: 1300px;
-  
-    .techs-container {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 50px 80px;
+  .techs-container {
+    align-items: stretch;
+    display: grid;
+    grid-gap: 5px 5px;
+    grid-template-areas:
+    "main . ."
+    "main . .";
+    grid-template-columns:  repeat(3, $tech-width);
+    grid-template-rows: repeat(2,1fr);
+    justify-content: center;
+    margin-bottom: 50px;
+
+    .tech:first-child {
+      border-right: 3px solid $earls-green;
+      grid-area: main;
     }
   }
 }

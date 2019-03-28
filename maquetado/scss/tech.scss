@@ -1,38 +1,18 @@
-@mixin tech-properties() {
-  border: 1px solid $earls-green;
-  border-radius: 7px;
-  width: $tech-width;
-}
 
 .tech {
-  @include tech-properties();
   align-items: center;
-  background-color: $earls-green;
   display: flex;
   flex-direction: column;
   margin: 15px;
+  justify-content: center;
   padding: 15px;
   position: relative;
   text-align: center;
-
-  &:hover::before {
-    bottom: -8px;
-    right: -8px;
-  }
-
-  &::before {
-    @include tech-properties();
-    bottom: 5px;
-    content: '';
-    height: 100%;
-    position: absolute;
-    right: 5px;
-    transition: bottom 0.5s linear, right 0.5s linear;
-  }
+  width: $tech-width;
 
   .tech-image {
-    height: $tech-logo-size;
-    max-width: 100%;
+    width: $tech-logo-size;
+    max-height: $tech-logo-size;
     margin-bottom: 10px;
   }
 
