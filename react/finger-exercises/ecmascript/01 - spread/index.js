@@ -6,6 +6,8 @@ export function min(...args) {
       return Math.min(...args[0]);
     }
     return args[0];
+  } else if (args.length === 0) {
+    return undefined;
   }
   return Math.min(...args);
 }
