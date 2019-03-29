@@ -20,3 +20,7 @@ export function copy(obj) {
   const { ...aux } = obj;
   return aux;
 }
+
+export function reverseMerge(arr1, arr2) {
+  return [...arr2, ...arr1];
+}
