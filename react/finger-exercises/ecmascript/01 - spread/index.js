@@ -7,7 +7,7 @@ export function min(...args) {
     }
     return args[0];
   }
-  return Math.min();
+  return Math.min(...args);
 }
 
 export function copy() {
