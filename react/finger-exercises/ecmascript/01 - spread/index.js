@@ -9,11 +9,7 @@ export function min(...args) {
 }
 
 export function copy(obj) {
-  if (isArray(obj)) {
-    const [...aux] = obj;
-    return aux;
-  }
-  const { ...aux } = obj;
+  const aux = isArray(obj) ? [...obj] : { ...obj };
   return aux;
 }
 
