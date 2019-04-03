@@ -1,15 +1,11 @@
 import isArray from './utils';
 
 export function min(...args) {
-  if (args.length === 1) {
-    if (isArray(args[0])) {
-      return Math.min(...args[0]);
-    }
-    return args[0];
-  } else if (args.length === 0) {
-    return undefined;
+  if (args.length !== 0) {
+    const aux = isArray(args[0]) ? args[0] : args;
+    return Math.min(...aux);
   }
-  return Math.min(...args);
+  return undefined;
 }
 
 export function copy(obj) {
