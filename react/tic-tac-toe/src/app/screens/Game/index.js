@@ -15,7 +15,7 @@ class Game extends Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length -1];
     const squares = current.squares.slice();
-    if (this.calculateWinner(current.squares) || squares[i]) {
+    if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
