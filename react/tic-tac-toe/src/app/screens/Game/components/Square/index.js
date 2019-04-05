@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {PropTypes} from 'prop-types';
+import PropTypes, {func, string} from 'prop-types';
 
 import styles from './styles.module.scss';
 
@@ -12,8 +12,8 @@ function Square(props){
 }
 
 Square.propTypes = {
-  onClick : PropTypes.func,
-  value : PropTypes.string
+  onClick : func,
+  value : string
 }
 
 
