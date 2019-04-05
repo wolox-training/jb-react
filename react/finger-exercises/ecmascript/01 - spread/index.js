@@ -9,8 +9,7 @@ export function min(...args) {
 }
 
 export function copy(obj) {
-  const aux = isArray(obj) ? [...obj] : { ...obj };
-  return aux;
+  return isArray(obj) ? [...obj] : { ...obj };
 }
 
 export function reverseMerge(arr1, arr2) {
