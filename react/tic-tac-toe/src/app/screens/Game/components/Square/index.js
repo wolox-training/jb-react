@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import PropTypes, {func, string} from 'prop-types';
+import React from 'react';
+import {func, string} from 'prop-types';
 
 import styles from './styles.module.scss';
 
