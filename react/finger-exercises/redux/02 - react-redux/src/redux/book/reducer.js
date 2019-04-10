@@ -26,7 +26,10 @@ function reducer(state = initialState, action) {
         ...state
       };
     case actions.REMOVE_ITEM: // TODO to implement the logic
-      return { ...state };
+      return {
+        ...state,
+        bookSelected: state.bookSelected.filter(actual => actual.id !== action.payload)
+      };
     case actions.SEARCH_ITEM: // TODO to implement the logic
       return {
         ...state,
