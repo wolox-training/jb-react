@@ -30,7 +30,9 @@ class App extends Component {
   };
 
   // TODO to implement the dispatch
-  addToCart = item => {};
+  addToCart = item => {
+    store.dispatch(actionsCreators.addToCart(item));
+  };
 
   // TODO to implement the dispatch
   addItem = itemId => {};
