@@ -21,7 +21,15 @@ function reducer(state = initialState, action) {
       };
     case actions.ADD_ITEM: // TODO to implement the logic
       return {
-        ...state
+        ...state,
+        bookSelected: state.bookSelected.map(elem => {
+          if (elem.id === action.payload) {
+            const aux = { ...elem };
+            aux.quantity += 1;
+            return aux;
+          }
+          return elem;
+        })
       };
     case actions.REMOVE_ITEM: // TODO to implement the logic
       return {
