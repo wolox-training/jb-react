@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import store from '@redux/store';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
+import actionsCreators from '@redux/book/actions';
 
 import Book from './components/Book';
 import Search from './components/Search';
@@ -20,6 +21,7 @@ class App extends Component {
       this.setState({ books, bookSelected });
     });
     // TODO to implement the dispatch
+    store.dispatch(actionsCreators.getBooks());
   }
 
   // TODO to implement the dispatch
