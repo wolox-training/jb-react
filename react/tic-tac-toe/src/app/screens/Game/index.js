@@ -28,7 +28,7 @@ class Game extends Component {
     );
   }
 
-  jumpTo(step){
+  jumpTo = step => {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
