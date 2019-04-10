@@ -11,6 +11,7 @@ function reducer(state = initialState, action) {
     case actions.GET_BOOKS: // TODO to implement the logic
       return {
         ...state,
+        originalData: [...action.payload],
         books: [...action.payload]
       };
     case actions.ADD_TO_CART: // TODO to implement the logic
@@ -20,7 +21,10 @@ function reducer(state = initialState, action) {
     case actions.REMOVE_ITEM: // TODO to implement the logic
       return { ...state };
     case actions.SEARCH_ITEM: // TODO to implement the logic
-      return { ...state };
+      return {
+        ...state,
+        books: state.originalData.filter(actual => actual.name.toLowerCase().includes(action.payload))
+      };
     default:
       return state;
   }
