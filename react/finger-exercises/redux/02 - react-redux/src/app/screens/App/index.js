@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import store from '@redux/store';
 import { connect } from 'react-redux';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
