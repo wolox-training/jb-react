@@ -68,6 +68,9 @@ const mapDispatchToProps = dispatch => ({
   },
   addToCart(item) {
     dispatch(actionsCreators.addToCart(item));
+  },
+  removeItem(itemId) {
+    dispatch(actionsCreators.removeItem(itemId));
   }
 });
 export default connect(
