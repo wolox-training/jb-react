@@ -46,9 +46,7 @@ class App extends Component {
             </div>
           )}
         </div>
-        {this.props.bookSelected.length ? (
-          <ShoppingCart data={this.props.bookSelected} addItem={this.props.addItem} removeItem={this.props.removeItem} />
-        ) : null}
+        {this.props.bookSelected.length ? <ShoppingCart data={this.props.bookSelected} /> : null}
         <Footer />
       </Fragment>
     );

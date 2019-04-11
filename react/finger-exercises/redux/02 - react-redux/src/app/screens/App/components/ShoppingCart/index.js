@@ -39,7 +39,7 @@ class ShoppingCart extends PureComponent {
 }
 
 ShoppingCart.propTypes = {
-  data: arrayOf(bookSelectedPropType).isRequired,
+  data: arrayOf(bookSelectedPropType).isRequired
 };
 
 export default ShoppingCart;
