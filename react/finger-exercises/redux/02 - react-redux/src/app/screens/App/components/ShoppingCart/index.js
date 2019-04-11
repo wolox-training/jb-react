@@ -40,8 +40,6 @@ class ShoppingCart extends PureComponent {
 
 ShoppingCart.propTypes = {
   data: arrayOf(bookSelectedPropType).isRequired,
-  addItem: func.isRequired,
-  removeItem: func.isRequired
 };
 
 export default ShoppingCart;
