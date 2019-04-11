@@ -1,39 +1,26 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { func } from 'prop-types';
 import { bookSelectedPropType } from '@constants/propTypes';
 import Button from '@components/Button';
+import { connect } from 'react-redux';
+import actionsCreators from '@redux/book/actions';
 
 import styles from './styles.scss';
 
-class Item extends PureComponent {
-  addItem = () => {
-    const { item, addItem } = this.props;
-    addItem(item.id);
-  };
-
-  removeItem = () => {
-    const { item, removeItem } = this.props;
-    removeItem(item.id);
-  };
-
-  render() {
-    const { item } = this.props;
-    return (
-      <li className={styles.item}>
-        <h3 className={styles.title}>{item.name}</h3>
-        <span className={styles.contentButtons}>
-          <span className={styles.quantity}>{item.quantity}</span>
-          <Button className={styles.buttonCart} onClick={this.addItem}>
-            <i className="fa fa-plus" />
-          </Button>
-          <Button className={styles.buttonCart} onClick={this.removeItem} isDanger>
-            <i className="fa fa-trash" />
-          </Button>
-        </span>
-      </li>
-    );
-  }
-}
+const Item = ({ addItem, removeItem, item }) => (
+  <li className={styles.item}>
+    <h3 className={styles.title}>{item.name}</h3>
+    <span className={styles.contentButtons}>
+      <span className={styles.quantity}>{item.quantity}</span>
+      <Button className={styles.buttonCart} onClick={() => addItem(item.id)}>
+        <i className="fa fa-plus" />
+      </Button>
+      <Button className={styles.buttonCart} onClick={() => removeItem(item.id)} isDanger>
+        <i className="fa fa-trash" />
+      </Button>
+    </span>
+  </li>
+);
 
 Item.propTypes = {
   item: bookSelectedPropType,
@@ -41,4 +28,16 @@ Item.propTypes = {
   removeItem: func.isRequired
 };
 
-export default Item;
+const mapDispatchToProps = dispatch => ({
+  addItem(itemId) {
+    dispatch(actionsCreators.addItem(itemId));
+  },
+  removeItem(itemId) {
+    dispatch(actionsCreators.removeItem(itemId));
+  }
+});
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Item);

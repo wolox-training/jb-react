@@ -38,7 +38,7 @@ class App extends Component {
       <Fragment>
         <Navbar />
         <div className={styles.container}>
-          <Search onSearch={this.props.onSearch} />
+          <Search />
           {this.props.books.length ? (
             this.props.books.map(this.renderBooks)
           ) : (
@@ -68,12 +68,6 @@ const mapDispatchToProps = dispatch => ({
   },
   addToCart(item) {
     dispatch(actionsCreators.addToCart(item));
-  },
-  addItem(itemId) {
-    dispatch(actionsCreators.addItem(itemId));
-  },
-  removeItem(itemId) {
-    dispatch(actionsCreators.removeItem(itemId));
   }
 });
 export default connect(
