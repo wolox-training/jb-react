@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import { func } from 'prop-types';
+import { connect } from 'react-redux';
+import actionsCreators from '@redux/book/actions';
 
 import styles from './styles.scss';
 
-class Search extends Component {
-  search = e => {
-    this.props.onSearch(e.target.value.toLowerCase());
-  };
-
-  render() {
-    return <input className={styles.input} type="text" placeholder="Search by name" onChange={this.search} />;
-  }
-}
+const Search = ({ onSearch }) => (
+  <input
+    className={styles.input}
+    type="text"
+    placeholder="Search by name"
+    onChange={e => {
+      onSearch(e.target.value.toLowerCase());
+    }}
+  />
+);
 
 Search.propTypes = {
   onSearch: func.isRequired
 };
 
-export default Search;
+const mapDispatchToProps = dispatch => ({
+  onSearch(value) {
+    dispatch(actionsCreators.searchBook(value));
+  }
+});
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(Search);

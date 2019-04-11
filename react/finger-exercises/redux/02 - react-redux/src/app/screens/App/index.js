@@ -66,9 +66,6 @@ const mapDispatchToProps = dispatch => ({
   getOriginalBooks() {
     dispatch(actionsCreators.getBooks());
   },
-  onSearch(value) {
-    dispatch(actionsCreators.searchBook(value));
-  },
   addToCart(item) {
     dispatch(actionsCreators.addToCart(item));
   },
