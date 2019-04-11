@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import store from '@redux/store';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import actionsCreators from '@redux/book/actions';
@@ -12,14 +11,10 @@ import styles from './styles.scss';
 class App extends Component {
   state = {
     books: [],
-    bookSelected: []
+    originalData: []
   };
 
   componentDidMount() {
-    store.subscribe(() => {
-      const { books, bookSelected } = store.getState();
-      this.setState({ books, bookSelected });
-    });
     // TODO to implement the dispatch
     store.dispatch(actionsCreators.getBooks());
   }
