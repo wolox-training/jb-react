@@ -1,5 +1,5 @@
 import React, { PureComponent, Fragment } from 'react';
-import { arrayOf, func } from 'prop-types';
+import { arrayOf } from 'prop-types';
 import { bookSelectedPropType } from '@constants/propTypes';
 import Button from '@components/Button';
 

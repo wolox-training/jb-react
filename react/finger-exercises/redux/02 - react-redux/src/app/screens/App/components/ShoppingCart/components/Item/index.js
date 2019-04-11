@@ -3,7 +3,7 @@ import { func } from 'prop-types';
 import { bookSelectedPropType } from '@constants/propTypes';
 import Button from '@components/Button';
 import { connect } from 'react-redux';
-import actionsCreators from '@redux/book/actions';
+import cartActionsCreators from '@redux/cart/actions';
 
 import styles from './styles.scss';
 
@@ -40,10 +40,10 @@ Item.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   addItem(itemId) {
-    dispatch(actionsCreators.addItem(itemId));
+    dispatch(cartActionsCreators.addItem(itemId));
   },
   removeItem(itemId) {
-    dispatch(actionsCreators.removeItem(itemId));
+    dispatch(cartActionsCreators.removeItem(itemId));
   }
 });
 

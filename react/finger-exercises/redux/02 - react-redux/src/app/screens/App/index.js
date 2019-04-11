@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
-import actionsCreators from '@redux/book/actions';
+import bookActionsCreators from '@redux/book/actions';
+import cartActionsCreators from '@redux/cart/actions';
 
 import Book from './components/Book';
 import Search from './components/Search';
@@ -38,7 +39,7 @@ class App extends Component {
         <Navbar />
         <div className={styles.container}>
           <Search />
-          {this.props.books.length ? (
+          {this.props.originalData.length ? (
             this.props.books.map(this.renderBooks)
           ) : (
             <div className={styles.noData}>
@@ -53,21 +54,21 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = ({ books, bookSelected, originalData }) => ({
-  books,
-  bookSelected,
-  originalData
+const mapStateToProps = ({ books, cart }) => ({
+  books: books.books,
+  bookSelected: cart,
+  originalData: books.originalData
 });
 
 const mapDispatchToProps = dispatch => ({
   getOriginalBooks() {
-    dispatch(actionsCreators.getBooks());
+    dispatch(bookActionsCreators.getBooks());
   },
   addToCart(item) {
-    dispatch(actionsCreators.addToCart(item));
+    dispatch(cartActionsCreators.addToCart(item));
   },
   removeItem(itemId) {
-    dispatch(actionsCreators.removeItem(itemId));
+    dispatch(cartActionsCreators.removeItem(itemId));
   }
 });
 export default connect(

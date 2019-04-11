@@ -1,7 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 import { connect } from 'react-redux';
-import actionsCreators from '@redux/book/actions';
+import bookActionsCreators from '@redux/book/actions';
 
 import styles from './styles.scss';
 
@@ -22,11 +22,11 @@ Search.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   onSearch(value) {
-    dispatch(actionsCreators.searchBook(value));
+    dispatch(bookActionsCreators.searchBook(value));
   }
 });
 
 export default connect(
-  undefined,
+  null,
   mapDispatchToProps
 )(Search);
