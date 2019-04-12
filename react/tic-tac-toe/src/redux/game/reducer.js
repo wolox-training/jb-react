@@ -17,11 +17,19 @@ function reducer(state = initialState, action){
           return state;
         }
         squares[action.payload] = state.xIsNext ? 'X' : 'O';
-        return { 
+        return {
+          ...state, 
           history: history.concat([{squares}]),
           stepNumber: history.length,
           xIsNext: !state.xIsNext,
           current: { squares }
+        }
+      case actions.HISTORY_CLICK:
+        return {
+          ...state,
+          stepNumber: action.payload,
+          xIsNext: (action.payload % 2) === 0,
+          current: { ... state.history[action.payload] }
         }
       default:
         return state;
