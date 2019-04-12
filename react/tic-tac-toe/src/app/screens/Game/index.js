@@ -8,30 +8,14 @@ import {lines} from './constants';
 
 class Game extends Component {
 
-  handleClick = i => {
-    const history = this.props.history.slice(0, this.props.stepNumber + 1);
-    const current = history[history.length -1];
-    const squares = current.squares.slice();
-    if (this.calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = this.props.xIsNext ? 'X' : 'O';
-    this.setState( prevState => ({ 
-      history: history.concat([{squares}]),
-      stepNumber: history.length,
-      xIsNext: !prevState.xIsNext 
-      })
-    );
-  }
-
-  jumpTo(step){
+  jumpTo = step => {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
     });
   }
 
-  calculateWinner = (squares) => {
+  calculateWinner = squares => {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && 
