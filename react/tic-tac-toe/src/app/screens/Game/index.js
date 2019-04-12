@@ -1,25 +1,21 @@
 
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
 import {lines} from './constants';
 
 class Game extends Component {
-  state = {
-    history: [{ squares: Array(9).fill(null)}],
-    stepNumber: 0,
-    xIsNext: true
-  }
 
   handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const history = this.props.history.slice(0, this.props.stepNumber + 1);
     const current = history[history.length -1];
     const squares = current.squares.slice();
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.props.xIsNext ? 'X' : 'O';
     this.setState( prevState => ({ 
       history: history.concat([{squares}]),
       stepNumber: history.length,
@@ -86,4 +82,13 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  history: state.history,
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext
+});
+const mapDispatchToProps = dispatch => {
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
