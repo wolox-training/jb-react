@@ -31,7 +31,10 @@ class ShoppingCart extends PureComponent {
         <div className={`${styles.container} ${this.state.open ? styles.open : ''}`}>
           <h1 className={styles.title}>Cart</h1>
           <ul className={styles.content}>{this.props.bookSelected.map(this.renderItem)}</ul>
-          <h2 className={`${styles.title} ${styles.total}`}>Total: {this.props.bookSelected.reduce(this.total, 0)}</h2>
+          <h2 className={`${styles.title} ${styles.total}`}>
+            Total:
+            {this.props.bookSelected.reduce(this.total, 0)}
+          </h2>
         </div>
       </Fragment>
     );
@@ -39,7 +42,7 @@ class ShoppingCart extends PureComponent {
 }
 
 ShoppingCart.propTypes = {
-  data: arrayOf(bookSelectedPropType).isRequired
+  bookSelected: arrayOf(bookSelectedPropType).isRequired
 };
 
 const mapStateToProps = ({ cart }) => ({

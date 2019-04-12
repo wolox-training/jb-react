@@ -4,6 +4,7 @@ import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import bookActionsCreators from '@redux/book/actions';
 import cartActionsCreators from '@redux/cart/actions';
+import { array } from 'prop-types';
 
 import Book from './components/Book';
 import Search from './components/Search';
@@ -71,6 +72,13 @@ const mapDispatchToProps = dispatch => ({
     dispatch(cartActionsCreators.removeItem(itemId));
   }
 });
+
+App.propTypes = {
+  books: array,
+  bookSelected: array,
+  originalData: array
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
