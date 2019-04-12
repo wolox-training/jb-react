@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import { func, bool, shape, string, number } from 'prop-types';
+import { func, bool, shape, string } from 'prop-types';
 import Button from '@components/Button';
+import { bookPropType } from '@constants/propTypes';
 
 import styles from './styles.scss';
 
@@ -49,14 +50,7 @@ class Book extends PureComponent {
 }
 
 Book.propTypes = {
-  data: shape({
-    id: number,
-    name: string,
-    author: string,
-    image: string,
-    summary: string,
-    year: number
-  }),
+  data: bookPropType,
   configButton: shape({
     text: string.isRequired,
     function: func.isRequired,

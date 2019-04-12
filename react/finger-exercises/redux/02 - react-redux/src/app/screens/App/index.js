@@ -5,7 +5,7 @@ import Footer from '@components/Footer';
 import bookActionsCreators from '@redux/book/actions';
 import cartActionsCreators from '@redux/cart/actions';
 import { arrayOf, func } from 'prop-types';
-import { bookPropType } from '@constants/propTypes';
+import { bookPropType, bookSelectedPropType } from '@constants/propTypes';
 
 import Book from './components/Book';
 import Search from './components/Search';
@@ -75,8 +75,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 App.propTypes = {
-  books: arrayOf,
-  bookSelected: arrayOf(bookPropType),
+  books: arrayOf(bookPropType),
+  bookSelected: arrayOf(bookSelectedPropType),
   originalData: arrayOf(bookPropType),
   getOriginalBooks: func,
   addToCart: func,
