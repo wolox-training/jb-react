@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {func, string} from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
-import actionCreators from '~redux/game/actions';
+import gameActionsCreators from '~redux/game/actions';
 
-function Square({id, value, onClick}){
-  return(
-    <button type="button" className={styles.square} onClick={onClick(id)}>
-      {value}
-    </button>
-    );
+class Square extends Component {
+  clickHandler = () => {
+    this.props.onClick(this.props.id)
+  }
+
+  render() {
+    return(
+      <button type="button" className={styles.square} onClick={this.clickHandler}>
+        {this.props.history[this.props.stepNumber].squares[this.props.id]}
+      </button>
+      );
+  }
 }
 
 Square.propTypes = {
@@ -18,13 +24,14 @@ Square.propTypes = {
   value : string
 }
 
-const mapStateToProps = state => {
-
-}
+const mapStateToProps = ({history, stepNumber}) => ({
+  history,
+  stepNumber
+});
 
 const mapDispatchToProps = dispatch => ({
-  onClick(squareId){
-    dispatch(actionCreators.squareClick(squareId));
+  onClick(squareId) {
+    dispatch(gameActionsCreators.squareClick(squareId));
   }
 });
 
