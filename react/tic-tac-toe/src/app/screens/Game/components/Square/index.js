@@ -13,7 +13,7 @@ class Square extends Component {
   render() {
     return(
       <button type="button" className={styles.square} onClick={this.clickHandler}>
-        {this.props.history[this.props.stepNumber].squares[this.props.id]}
+        {this.props.current.squares[this.props.id]}
       </button>
       );
   }
@@ -24,9 +24,8 @@ Square.propTypes = {
   value : string
 }
 
-const mapStateToProps = ({history, stepNumber}) => ({
-  history,
-  stepNumber
+const mapStateToProps = ({current}) => ({
+  current
 });
 
 const mapDispatchToProps = dispatch => ({
