@@ -3,21 +3,12 @@ import { arrayOf } from 'prop-types';
 import { bookSelectedPropType } from '@constants/propTypes';
 import Button from '@components/Button';
 import { connect } from 'react-redux';
+import cartActionsCreators from '@redux/cart/actions';
 
 import Item from './components/Item';
 import styles from './styles.scss';
 
 class ShoppingCart extends PureComponent {
-  state = {
-    open: false
-  };
-
-  toggleContent = () => {
-    this.setState(prevState => ({
-      open: !prevState.open
-    }));
-  };
-
   total = (accumulator, currentValue) => accumulator + currentValue.quantity;
 
   renderItem = item => <Item key={item.id} item={item} />;
@@ -25,10 +16,10 @@ class ShoppingCart extends PureComponent {
   render() {
     return (
       <Fragment>
-        <Button className={styles.buttonCart} onClick={this.toggleContent}>
+        <Button className={styles.buttonCart} onClick={this.props.toggleContent}>
           <i className="fa fa-shopping-cart" />
         </Button>
-        <div className={`${styles.container} ${this.state.open ? styles.open : ''}`}>
+        <div className={`${styles.container} ${this.props.open ? styles.open : ''}`}>
           <h1 className={styles.title}>Cart</h1>
           <ul className={styles.content}>{this.props.bookSelected.map(this.renderItem)}</ul>
           <h2 className={`${styles.title} ${styles.total}`}>
@@ -46,7 +37,17 @@ ShoppingCart.propTypes = {
 };
 
 const mapStateToProps = ({ cart }) => ({
-  bookSelected: cart.bookSelected
+  bookSelected: cart.bookSelected,
+  open: cart.open
 });
 
-export default connect(mapStateToProps)(ShoppingCart);
+const mapDispatchToProps = dispatch => ({
+  toggleContent() {
+    dispatch(cartActionsCreators.toggleCart());
+  }
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ShoppingCart);
