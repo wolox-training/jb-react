@@ -2,6 +2,7 @@ import actions from './actions'
 import { calculateWinner } from '../../utils' 
 
 const initialState = {
+  current: [],
   history: [{ squares: Array(9).fill(null)}],
   stepNumber: 0,
   xIsNext: true

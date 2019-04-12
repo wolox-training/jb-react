@@ -1,4 +1,6 @@
-import { createStore } from 'redux';
 import game from './game/reducer';
 
-export default createStore(game);
+import { createStore, compose, applyMiddleware } from 'redux';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+export default createStore(game, composeEnhancers());
