@@ -15,8 +15,6 @@ export function delay(time) {
   });
 }
 
-export async function asyncDelay(time) {
-  const startTime = Date.now();
-  await delay(time);
-  return Date.now() - startTime;
+export function asyncDelay(time) {
+  return delay(time);
 }
