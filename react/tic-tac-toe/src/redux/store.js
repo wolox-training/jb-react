@@ -1,4 +1,4 @@
-import { createStore } from 'react-redux';
+import { createStore } from 'redux';
 import game from './game/reducer';
 
 export default createStore(game);
