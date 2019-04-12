@@ -46,7 +46,7 @@ ShoppingCart.propTypes = {
 };
 
 const mapStateToProps = ({ cart }) => ({
-  bookSelected: cart
+  bookSelected: cart.bookSelected
 });
 
 export default connect(mapStateToProps)(ShoppingCart);

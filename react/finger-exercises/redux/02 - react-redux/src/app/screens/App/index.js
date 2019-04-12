@@ -58,7 +58,7 @@ class App extends Component {
 
 const mapStateToProps = ({ books, cart }) => ({
   books: books.books,
-  bookSelected: cart,
+  bookSelected: cart.bookSelected,
   originalData: books.originalData
 });
 
