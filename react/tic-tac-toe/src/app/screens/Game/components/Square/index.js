@@ -1,9 +1,10 @@
 import React from 'react';
 import {func, string} from 'prop-types';
+import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 
-function Square({value, onClick}){
+function Square({id, value}){
   return(
     <button type="button" className={styles.square} onClick={onClick}>
       {value}
@@ -16,5 +17,14 @@ Square.propTypes = {
   value : string
 }
 
+const mapStateToProps = state => {
 
-export default Square;
+}
+
+const mapDispatchToProps = dispatch => ({
+  onClick(squareId){
+    dispatch()
+  }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Square);

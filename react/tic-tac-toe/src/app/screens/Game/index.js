@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
-import {lines} from './constants';
+import { calculateWinner } from '../../../utils';
+import gameActionsCreator from '../../../redux/game/actions';
 
 class Game extends Component {
 
@@ -15,22 +16,10 @@ class Game extends Component {
     });
   }
 
-  calculateWinner = squares => {
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
-      if (squares[a] && 
-      squares[a] === squares[b] && 
-      squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
-  }
-
   render(){
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = this.calculateWinner(current.squares);
+    const history = this.props.history;
+    const current = history[this.props.stepNumber];
+    const winner = calculateWinner(current.squares);
 
     const moves = history.map((step,move) => {
       const desc = move ?
@@ -48,7 +37,7 @@ class Game extends Component {
     if(winner) {
       status = 'Winner: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
     }
     
     return (
@@ -71,8 +60,10 @@ const mapStateToProps = state => ({
   stepNumber: state.stepNumber,
   xIsNext: state.xIsNext
 });
-const mapDispatchToProps = dispatch => {
-
-}
+const mapDispatchToProps = dispatch => ({
+  handleSquareClick(squareId) {
+    dispatch(gameActionsCreator.squareClick(squareId));
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
