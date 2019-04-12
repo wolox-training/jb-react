@@ -6,7 +6,7 @@ export const bookSelectedPropType = shape({
   quantity: number
 });
 
-export const bookProptype = shape({
+export const bookPropType = shape({
   id: number,
   name: string,
   author: string,
