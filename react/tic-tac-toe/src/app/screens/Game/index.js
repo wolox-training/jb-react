@@ -27,7 +27,7 @@ class Game extends Component {
 
     let status;
     if(winner) {
-      status = 'Winner: ' + winner;
+      status = `Winner: ${winner}`;
     } else {
       status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
     }
@@ -36,7 +36,7 @@ class Game extends Component {
       <div className={styles.game}>
         <Board />
         <div className={styles.gameInfo}>
-          <div>{status}</div>
+          {status}
           <ol>{moves}</ol>
         </div>
       </div>

@@ -7,7 +7,8 @@ import gameActionsCreators from '~redux/game/actions';
 
 class Square extends Component {
   clickHandler = () => {
-    this.props.onClick(this.props.id)
+    const { onClick, id } = this.props;
+    onClick(id);
   }
 
   render() {
@@ -24,7 +25,7 @@ Square.propTypes = {
   value : string
 }
 
-const mapStateToProps = ({current}) => ({
+const mapStateToProps = ( {current} ) => ({
   current
 });
 
