@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
+import MatchHistory from './components/MatchHistory';
 import { calculateWinner } from "~utils";
 import gameActionsCreator from "~redux/game/actions";
 
@@ -39,6 +40,7 @@ class Game extends Component {
           {status}
           <ol>{moves}</ol>
         </div>
+        <MatchHistory />
       </div>
     );
   }
