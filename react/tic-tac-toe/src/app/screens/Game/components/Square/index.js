@@ -30,9 +30,7 @@ const mapStateToProps = ( {current} ) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onClick(squareId) {
-    dispatch(gameActionsCreators.squareClick(squareId));
-  }
+  onClick: squareId => dispatch(gameActionsCreators.squareClick(squareId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Square);

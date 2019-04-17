@@ -50,9 +50,7 @@ const mapStateToProps = state => ({
   current: state.current
   });
 const mapDispatchToProps = dispatch => ({
-  jumpTo(historyId) {
-    dispatch(gameActionsCreator.historyClick(historyId));
-  }
+  jumpTo: historyId => dispatch(gameActionsCreator.historyClick(historyId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
