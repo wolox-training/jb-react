@@ -8,6 +8,7 @@ class Square extends Component {
     const { onClick, squareNumber } = this.props;
     onClick(squareNumber);
   }
+  
   render() {
     return(
       <button type="button" className={styles.square} onClick={this.clickHandler}>

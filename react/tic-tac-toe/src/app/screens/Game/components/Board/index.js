@@ -8,10 +8,11 @@ import styles from './styles.module.scss';
 class Board extends Component {
 
   renderSquare(i) {
+    const {squares, onClick} = this.props;
     return (
       <Square
-        value={this.props.squares[i]}
-        onClick={this.props.onClick}
+        value={squares[i]}
+        onClick={onClick}
         squareNumber={i}
       />
     );
