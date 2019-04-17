@@ -63,15 +63,9 @@ const mapStateToProps = ({ books, cart }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getOriginalBooks() {
-    dispatch(bookActionsCreators.getBooks());
-  },
-  addToCart(item) {
-    dispatch(cartActionsCreators.addToCart(item));
-  },
-  removeItem(itemId) {
-    dispatch(cartActionsCreators.removeItem(itemId));
-  }
+  getOriginalBooks: () => dispatch(bookActionsCreators.getBooks()),
+  addToCart: item => dispatch(cartActionsCreators.addToCart(item)),
+  removeItem: itemId => dispatch(cartActionsCreators.removeItem(itemId))
 });
 
 App.propTypes = {

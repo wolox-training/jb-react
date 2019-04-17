@@ -14,17 +14,18 @@ class ShoppingCart extends PureComponent {
   renderItem = item => <Item key={item.id} item={item} />;
 
   render() {
+    const { toggleContent, bookSelected, open } = this.props;
     return (
       <Fragment>
-        <Button className={styles.buttonCart} onClick={this.props.toggleContent}>
+        <Button className={styles.buttonCart} onClick={toggleContent}>
           <i className="fa fa-shopping-cart" />
         </Button>
-        <div className={`${styles.container} ${this.props.open ? styles.open : ''}`}>
+        <div className={`${styles.container} ${open ? styles.open : ''}`}>
           <h1 className={styles.title}>Cart</h1>
-          <ul className={styles.content}>{this.props.bookSelected.map(this.renderItem)}</ul>
+          <ul className={styles.content}>{bookSelected.map(this.renderItem)}</ul>
           <h2 className={`${styles.title} ${styles.total}`}>
             Total:
-            {this.props.bookSelected.reduce(this.total, 0)}
+            {bookSelected.reduce(this.total, 0)}
           </h2>
         </div>
       </Fragment>
@@ -44,9 +45,7 @@ const mapStateToProps = ({ cart }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleContent() {
-    dispatch(cartActionsCreators.toggleCart());
-  }
+  toggleContent: () => dispatch(cartActionsCreators.toggleCart())
 });
 
 export default connect(

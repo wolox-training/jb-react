@@ -6,14 +6,7 @@ import bookActionsCreators from '@redux/book/actions';
 import styles from './styles.scss';
 
 const Search = ({ onSearch }) => (
-  <input
-    className={styles.input}
-    type="text"
-    placeholder="Search by name"
-    onChange={e => {
-      onSearch(e.target.value.toLowerCase());
-    }}
-  />
+  <input className={styles.input} type="text" placeholder="Search by name" onChange={onSearch} />
 );
 
 Search.propTypes = {
@@ -21,9 +14,7 @@ Search.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onSearch(value) {
-    dispatch(bookActionsCreators.searchBook(value));
-  }
+  onSearch: e => dispatch(bookActionsCreators.searchBook(e.target.value.toLowerCase()))
 });
 
 export default connect(
