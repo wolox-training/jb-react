@@ -13,16 +13,17 @@ class Game extends Component {
   }
 
   handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length -1];
+    const { history, stepNumber, xIsNext} = this.state;
+    const auxHistory = history.slice(0, stepNumber + 1);
+    const current = auxHistory[auxHistory.length -1];
     const squares = current.squares.slice();
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = xIsNext ? 'X' : 'O';
     this.setState( prevState => ({ 
-      history: history.concat([{squares}]),
-      stepNumber: history.length,
+      history: auxHistory.concat([{squares}]),
+      stepNumber: auxHistory.length,
       xIsNext: !prevState.xIsNext 
       })
     );
