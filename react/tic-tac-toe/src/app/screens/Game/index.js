@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
-import {lines} from './constants';
+import {LINES} from './constants';
 
 class Game extends Component {
   state = {
@@ -28,16 +28,14 @@ class Game extends Component {
     );
   }
 
-  jumpTo = step => {
-    this.setState({
+  jumpTo = step => this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
     });
-  }
 
-  calculateWinner = (squares) => {
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
+  calculateWinner = squares => {
+    for (let i = 0; i < LINES.length; i++) {
+      const [a, b, c] = LINES[i];
       if (squares[a] && 
       squares[a] === squares[b] && 
       squares[a] === squares[c]) {
@@ -66,7 +64,7 @@ class Game extends Component {
 
     let status;
     if(winner) {
-      status = 'Winner: ' + winner;
+      status = `Winner: ${winner}`;
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
@@ -78,7 +76,7 @@ class Game extends Component {
           onClick={this.handleClick} 
         />
         <div className={styles.gameInfo}>
-          <div>{status}</div>
+          {status}
           <ol>{moves}</ol>
         </div>
       </div>
