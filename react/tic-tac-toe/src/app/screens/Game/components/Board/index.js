@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 import Square from '../Square';
-
+import { number } from 'prop-types';
 import styles from './styles.module.scss';
 
 class Board extends Component {
@@ -34,6 +34,7 @@ class Board extends Component {
 }
 
 Board.propTypes = {
+  id: number
 };
 
 export default Board;
