@@ -10,7 +10,6 @@ class MatchHistory extends Component {
             {historyMatch: response.data}
         ));
     }
-
     render() {
         const matchHistory = this.state.historyMatch.map(elem => <div>{elem.id}</div>);
         return (
