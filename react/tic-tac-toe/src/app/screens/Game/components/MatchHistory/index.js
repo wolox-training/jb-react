@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import matches, { getMatches } from "~services/matches";
+import matches from "~services/matches";
 
 class MatchHistory extends Component {
-    async renderMatches() {
-        getMatches();
-        
-    }
     render() {
+        matches.getMatches().then(console.log("ASD"));
         return (
         <div className={styles.matchHistory}>
             <div> Match History: </div>
-            {this.renderMatches()}
+            <div>  </div>
         </div>
         );
     }
