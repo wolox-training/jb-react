@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import matches from "~services/MatchesService";
+import { connect } from 'react-redux';
 
 class MatchHistory extends Component {
-    state = { historyMatch: []};
 
     componentDidMount = () => {
         matches.getMatches().then(response => this.setState(
@@ -15,10 +15,20 @@ class MatchHistory extends Component {
         return (
         <div className={styles.matchHistory}>
             <div> Match History: </div>
-            <div> {matchHistory} </div>
+            {matchHistory}
         </div>
         );
     }
 }
 
-export default MatchHistory;
+const mapStateToProps = () => ({
+    isLoading,
+    matchesHistory
+});
+const mapDispatchToProps = () => ({
+    getMatches: () => {
+        
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MatchHistory);
