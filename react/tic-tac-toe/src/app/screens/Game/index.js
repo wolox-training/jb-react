@@ -45,11 +45,11 @@ class Game extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  history: state.history,
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext,
-  current: state.current
+const mapStateToProps = ( {game} ) => ({
+  history: game.history,
+  stepNumber: game.stepNumber,
+  xIsNext: game.xIsNext,
+  current: game.current
   });
 const mapDispatchToProps = dispatch => ({
   jumpTo: historyId => dispatch(gameActionsCreator.historyClick(historyId))

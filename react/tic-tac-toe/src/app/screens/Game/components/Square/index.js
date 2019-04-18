@@ -25,7 +25,7 @@ Square.propTypes = {
   value : string
 }
 
-const mapStateToProps = ( {current} ) => ({
+const mapStateToProps = ( {game: {current}} ) => ({
   current
 });
 
