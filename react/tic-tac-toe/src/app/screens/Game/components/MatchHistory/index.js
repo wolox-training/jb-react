@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import matches from "~services/matches";
+import matches from "~services/MatchesService";
 
 class MatchHistory extends Component {
     state = { historyMatch: []};
