@@ -2,13 +2,17 @@
 import MatchesService from "~services/MatchesService";
 
 export const actions = {
-    GET_MATCHES: '@@MATCHES/GET_MATCHES'
+    GET_MATCHES: '@@MATCHES/GET_MATCHES',
+    TOGGLE_LOADING: '@@MATCHES/TOGGLE_LOADING'
 };
 
 const actionsCreators = {
-    getMatches: () => ({
-        payload: MatchesService.getMatches(),
+    getMatches: (matches) => ({
+        payload: matches,
         type: actions.GET_MATCHES
+    }),
+    toggleLoading: () => ({
+        type: actions.TOGGLE_LOADING
     })
 }
 
