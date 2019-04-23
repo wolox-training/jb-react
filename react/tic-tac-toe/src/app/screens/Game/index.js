@@ -11,21 +11,19 @@ import gameActionsCreator from "~redux/game/actions";
 class Game extends Component {
 
   render(){
+    const { current, jumpTo } = this.props;
     const history = this.props.history;
-    const winner = calculateWinner(this.props.current.squares);
-
+    const winner = calculateWinner(current.squares);
     const moves = history.map((step,move) => {
       const desc = move ?
         'Go to move #' + move :
         'Go to game start';
         return (
           <li key={move}>
-            <button onClick={() => this.props.jumpTo(move)}>{desc}</button>
+            <button onClick={() => jumpTo(move)}>{desc}</button>
           </li>
         );
-    }
-    );
-
+    });
     let status;
     if(winner) {
       status = `Winner: ${winner}`;

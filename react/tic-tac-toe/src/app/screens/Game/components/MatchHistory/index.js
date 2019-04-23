@@ -38,6 +38,13 @@ class MatchHistory extends Component {
     }
 }
 
+MatchHistory.propType = {
+  isLoading: boolean,
+  matchesHistory: arrayOf(matchPropType),
+  getMatches: func,
+  toggleLoading: func
+}
+
 const mapStateToProps = ( { matches: {isLoading, matchesHistory}} ) => ({
     isLoading,
     matchesHistory
@@ -46,12 +53,5 @@ const mapDispatchToProps = dispatch => ({
     getMatches: data => dispatch(matchActions.getMatches(data)),
     toggleLoading: () => dispatch(matchActions.toggleLoading())
 });
-
-MatchHistory.propType = {
-  isLoading: boolean,
-  matchesHistory: arrayOf(matchPropType),
-  getMatches: func,
-  toggleLoading: func
-}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MatchHistory);
