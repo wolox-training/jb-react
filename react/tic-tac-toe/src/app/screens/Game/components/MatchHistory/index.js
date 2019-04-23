@@ -8,18 +8,21 @@ import Spinner from 'react-spinkit';
 class MatchHistory extends Component {
 
     componentDidMount = () => {
-        this.props.getMatches();
+      const { toggleLoading, getMatches} = this.props;
+      toggleLoading();
+      matches.getMatches().then(response => getMatches(response.data));
     }
     render() {
         const { isLoading, matchesHistory} = this.props;
+        const matchesLines = matchesHistory.map( elem => elem.id);
         return (
           <div className={styles.matchHistory}>
             <div> Match History: </div>
-            {!isLoading ? 
+            {isLoading ? 
               <div className={styles.spinner}>
                 <Spinner />
               </div>
-              : null}
+              : matchesLines}
           </div>
         );
     }
@@ -30,8 +33,11 @@ const mapStateToProps = ( { matches: {isLoading, matchesHistory}} ) => ({
     matchesHistory
 });
 const mapDispatchToProps = dispatch => ({
-    getMatches: () => {
-      matches.getMatches().then( response => dispatch(matchActions.getMatches()))
+    getMatches: (data) => {
+      dispatch(matchActions.getMatches(data))
+    },
+    toggleLoading: () => {
+      dispatch(matchActions.toggleLoading())
     }
 });
 
