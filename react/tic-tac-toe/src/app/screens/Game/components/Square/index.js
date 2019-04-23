@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {func, string} from 'prop-types';
+import {func, arrayOf, string, shape} from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
@@ -21,8 +21,10 @@ class Square extends Component {
 }
 
 Square.propTypes = {
-  onClick : func,
-  value : string
+  onClick: func,
+  current: shape({
+    squares: arrayOf(string)
+  })
 }
 
 const mapStateToProps = ( {game: {current}} ) => ({

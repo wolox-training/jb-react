@@ -4,6 +4,8 @@ import matches from "~services/MatchesService";
 import { connect } from 'react-redux';
 import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
+import { arrayOf, func, boolean } from 'prop-types';
+import { matchPropType } from "~constants/propTypes.js"
 
 class MatchHistory extends Component {
 
@@ -15,7 +17,7 @@ class MatchHistory extends Component {
 
     renderLine = (data) => {
       return (
-      <div>
+      <div key={data.id}>
         Player one: {data.player_one}, Player two: {data.player_two}, Winner: {data.winner}
       </div>
     )}
@@ -41,12 +43,15 @@ const mapStateToProps = ( { matches: {isLoading, matchesHistory}} ) => ({
     matchesHistory
 });
 const mapDispatchToProps = dispatch => ({
-    getMatches: data => {
-      dispatch(matchActions.getMatches(data))
-    },
-    toggleLoading: () => {
-      dispatch(matchActions.toggleLoading())
-    }
+    getMatches: data => dispatch(matchActions.getMatches(data)),
+    toggleLoading: () => dispatch(matchActions.toggleLoading())
 });
+
+MatchHistory.propType = {
+  isLoading: boolean,
+  matchesHistory: arrayOf(matchPropType),
+  getMatches: func,
+  toggleLoading: func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(MatchHistory);

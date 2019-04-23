@@ -29,7 +29,7 @@ function reducer(state = initialState, action){
           ...state,
           stepNumber: action.payload,
           xIsNext: (action.payload % 2) === 0,
-          current: { ... state.history[action.payload] }
+          current: { ...state.history[action.payload] }
         }
       default:
         return state;
