@@ -24,6 +24,7 @@ class MatchHistory extends Component {
 
     render() {
         const { isLoading, matchesHistory} = this.props;
+        debugger;
         const matchesLines = matchesHistory.map(this.renderLine);
         return (
           <div className={styles.matchHistory}>
