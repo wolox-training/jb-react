@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
-import {lines} from './constants';
+import {LINES} from './constants';
 
 class Game extends Component {
   state = {
@@ -12,32 +12,31 @@ class Game extends Component {
     xIsNext: true
   }
 
-  handleClick = i => {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[history.length -1];
+  clickHandler = i => {
+    const { history, stepNumber, xIsNext} = this.state;
+    const auxHistory = history.slice(0, stepNumber + 1);
+    const current = auxHistory[auxHistory.length -1];
     const squares = current.squares.slice();
     if (this.calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = xIsNext ? 'X' : 'O';
     this.setState( prevState => ({ 
-      history: history.concat([{squares}]),
-      stepNumber: history.length,
+      history: auxHistory.concat([{squares}]),
+      stepNumber: auxHistory.length,
       xIsNext: !prevState.xIsNext 
       })
     );
   }
 
-  jumpTo(step){
-    this.setState({
+  jumpTo = step => this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0
     });
-  }
 
-  calculateWinner = (squares) => {
-    for (let i = 0; i < lines.length; i++) {
-      const [a, b, c] = lines[i];
+  calculateWinner = squares => {
+    for (let i = 0; i < LINES.length; i++) {
+      const [a, b, c] = LINES[i];
       if (squares[a] && 
       squares[a] === squares[b] && 
       squares[a] === squares[c]) {
@@ -66,7 +65,7 @@ class Game extends Component {
 
     let status;
     if(winner) {
-      status = 'Winner: ' + winner;
+      status = `Winner: ${winner}`;
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
@@ -75,10 +74,10 @@ class Game extends Component {
       <div className={styles.game}>
         <Board
           squares={current.squares}
-          onClick={this.handleClick} 
+          onClick={this.clickHandler} 
         />
         <div className={styles.gameInfo}>
-          <div>{status}</div>
+          {status}
           <ol>{moves}</ol>
         </div>
       </div>
