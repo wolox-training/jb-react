@@ -10,7 +10,7 @@ function reducer(state = initialState, action) {
         case actions.GET_MATCHES:
             return ({
                 ...state,
-                matchesHistory: [... state.matchesHistory],
+                matchesHistory: action.payload,
                 isLoading: false
             });
         case actions.TOGGLE_LOADING:

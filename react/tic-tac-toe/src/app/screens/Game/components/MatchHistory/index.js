@@ -12,9 +12,17 @@ class MatchHistory extends Component {
       toggleLoading();
       matches.getMatches().then(response => getMatches(response.data));
     }
+
+    renderLine = (data) => {
+      return (
+      <div>
+        Player one: {data.player_one}, Player two: {data.player_two}, Winner: {data.winner}
+      </div>
+    )}
+
     render() {
         const { isLoading, matchesHistory} = this.props;
-        const matchesLines = matchesHistory.map( elem => elem.id);
+        const matchesLines = matchesHistory.map(this.renderLine);
         return (
           <div className={styles.matchHistory}>
             <div> Match History: </div>
@@ -33,7 +41,7 @@ const mapStateToProps = ( { matches: {isLoading, matchesHistory}} ) => ({
     matchesHistory
 });
 const mapDispatchToProps = dispatch => ({
-    getMatches: (data) => {
+    getMatches: data => {
       dispatch(matchActions.getMatches(data))
     },
     toggleLoading: () => {
