@@ -1,10 +1,11 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form'
-import CustomInput from '../CustomInput'
+import { Field } from 'redux-form';
+import CustomInput from '../CustomInput';
+import styles from './styles.module.scss';
 
 let LoginForm = ({ handleSubmit }) => {
   return(
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.loginForm} >
       <Field 
         name="email"
         component={CustomInput}
@@ -14,16 +15,12 @@ let LoginForm = ({ handleSubmit }) => {
       <Field 
         name="password"
         component={CustomInput}
-        type="text"
+        type="password"
         label="Password"
       />
-      <button type="submit">Log in</button>
+      <button type="submit" className={styles.submitButton}>Log in</button>
     </form>
   )
 };
-
-LoginForm = reduxForm({
-  form: 'login'
-})(LoginForm);
 
 export default LoginForm;
