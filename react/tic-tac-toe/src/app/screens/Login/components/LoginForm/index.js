@@ -7,7 +7,7 @@ class LoginFormContainer extends Component {
     }
 
     render() {
-        return <LoginForm/>;
+        return <LoginForm handleSubmit={this.handleSubmit}/>;
     }
 }
 

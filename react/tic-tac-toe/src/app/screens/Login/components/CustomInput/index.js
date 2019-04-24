@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-const CustomInput = props => {
+const CustomInput = ( { label, input, type } ) => {
     return (
-        <input></input>
+        <Fragment>
+            <label>{label}</label>
+            <input {...input} type={type}/>
+        </Fragment>
     );
 }
 
