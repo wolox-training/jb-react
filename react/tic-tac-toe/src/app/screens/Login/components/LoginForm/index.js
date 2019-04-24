@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import LoginForm from './layout';
 
 class LoginFormContainer extends Component {
+    handleSubmit = () => {
+        alert("hola");
+    }
+
     render() {
-        <LoginForm/>
+        return <LoginForm/>;
     }
 }
 
