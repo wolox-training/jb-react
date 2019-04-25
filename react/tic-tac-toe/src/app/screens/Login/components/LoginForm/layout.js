@@ -3,26 +3,27 @@ import { Field } from 'redux-form';
 import CustomInput from '../CustomInput';
 import styles from './styles.module.scss';
 import { isRequired, minLength, validEmail } from '../../utils/validate';
+import { LOGIN_TITLE, EMAIL_LABEL, PASSWORD_LABEL, FORM_SUBMIT_BUTTON} from "~constants/text";
 
 let LoginForm = ({ handleSubmit }) => {
   return(
     <form onSubmit={handleSubmit} className={styles.loginForm} >
-      <h2 className={styles.formTitle}> Welcome </h2>
+      <h2 className={styles.formTitle}>{LOGIN_TITLE}</h2>
       <Field 
         name="email"
         component={CustomInput}
         type="text"
-        label="Email"
+        label={EMAIL_LABEL}
         validate={[isRequired, validEmail]}
       />
       <Field 
         name="password"
         component={CustomInput}
         type="password"
-        label="Password"
+        label={PASSWORD_LABEL}
         validate={[isRequired, minLength]}
       />
-      <button type="submit" className={styles.submitButton}>Log in</button>
+      <button type="submit" className={styles.submitButton}>{FORM_SUBMIT_BUTTON}</button>
     </form>
   )
 };
