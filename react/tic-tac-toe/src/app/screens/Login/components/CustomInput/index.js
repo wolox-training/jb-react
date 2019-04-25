@@ -7,9 +7,9 @@ const CustomInput = ( { label, input, type, meta } ) => {
             <label className={styles.label}>{label}</label>
             <input {...input} type={type} className={styles.input}/>
             { meta.error && meta.touched &&
-                <div className={styles.error}>
+                <span className={styles.error}>
                     {meta.error}
-                </div>
+                </span>
             }
         </Fragment>
     );
