@@ -36,20 +36,21 @@ class App extends Component {
   };
 
   render() {
+    const { originalData, books, bookSelected } = this.props;
     return (
       <Fragment>
         <Navbar />
         <div className={styles.container}>
           <Search />
-          {this.props.originalData.length ? (
-            this.props.books.map(this.renderBooks)
+          {originalData.length ? (
+            books.map(this.renderBooks)
           ) : (
             <div className={styles.noData}>
               <h2 className={styles.title}>No Data</h2>
             </div>
           )}
         </div>
-        {this.props.bookSelected.length ? <ShoppingCart /> : null}
+        {bookSelected.length ? <ShoppingCart /> : null}
         <Footer />
       </Fragment>
     );

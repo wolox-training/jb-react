@@ -7,15 +7,7 @@ const initialState = {
 
 // i don't like the sintax of this func but is the only way that the linter don't bother
 const incrementById = (arr, id) =>
-  arr.map(elem => {
-    if (elem.id === id) {
-      const aux = { ...elem };
-      aux.quantity += 1;
-      return aux;
-    }
-    return elem;
-  });
-
+  arr.map(elem => (elem.id === id ? { ...elem, quantity: elem.quantity + 1 } : elem));
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.ADD_TO_CART:
