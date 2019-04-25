@@ -13,14 +13,16 @@
   text-align: center;
   }
 
+.input-error {
+  border: 1px solid red;
+}
+
 .error {
   align-items: center;
-  background-color: lightcoral;
   color: red;
   display: flex;
   height: 30px;
   justify-content: center;
-  margin: 10px 0;
   text-align: center;
   transition: visibility 2s, opacity 0.5s linear;
 }

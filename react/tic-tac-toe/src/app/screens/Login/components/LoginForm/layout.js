@@ -7,7 +7,7 @@ import { isRequired, minLength, validEmail } from '../../utils/validate';
 let LoginForm = ({ handleSubmit }) => {
   return(
     <form onSubmit={handleSubmit} className={styles.loginForm} >
-      <h2 className={styles.formTitle}> Login to your account </h2>
+      <h2 className={styles.formTitle}> Welcome </h2>
       <Field 
         name="email"
         component={CustomInput}
