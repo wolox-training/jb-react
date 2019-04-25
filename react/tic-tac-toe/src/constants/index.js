@@ -12,3 +12,5 @@ export const LINES = [
 export const PLAYER_ONE = "Player one: ";
 export const PLAYER_TWO = "Player two: ";
 export const WINNER = "Winner: ";
+export const MATCH_HISTORY_TITLE = "Match History: ";
+export const GET_ERROR = "Error getting the data";
