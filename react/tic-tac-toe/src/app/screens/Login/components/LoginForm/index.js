@@ -3,17 +3,17 @@ import LoginForm from './layout';
 import { reduxForm } from 'redux-form';
 
 class LoginFormContainer extends Component {
-    handleSubmit = values => {
-        alert(JSON.stringify(values,null,4));
-    }
+  handleSubmit = values => {
+    // here we handle de submit
+  }
 
-    render() {
-        return <LoginForm handleSubmit={this.handleSubmit}/>;
-    }
+  render() {
+    return <LoginForm handleSubmit={this.handleSubmit}/>;
+  }
 }
 
 LoginFormContainer = reduxForm({
-    form: 'login'
+  form: 'login'
 })(LoginFormContainer);
 
 export default LoginFormContainer;

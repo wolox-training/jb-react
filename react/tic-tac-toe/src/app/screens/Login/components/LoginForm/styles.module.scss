@@ -1,28 +1,28 @@
 @import 'src/scss/colors';
 
 .login-form {
-    box-shadow: 0 0 20px $black;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 30px;
-    width: 500px;
+  box-shadow: 0 0 20px $black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  width: 500px;
 
-    .form-title {
-        align-self: center;
-        color: $black;
-        font-size: 25px;
-    }
+  .form-title {
+    align-self: center;
+    color: $black;
+    font-size: 25px;
+  }
 
-    .submit-button {
-        align-self: center;
-        background-color: $blue;
-        border: 1px solid $black;
-        border-radius: 10px;
-        color: $white;
-        height: 30px;
-        margin-top: 10px;
-        width: 100px;
-    }
+  .submit-button {
+    align-self: center;
+    background-color: $blue;
+    border: 1px solid $black;
+    border-radius: 10px;
+    color: $white;
+    height: 30px;
+    margin-top: 10px;
+    width: 100px;
+  }
 }
