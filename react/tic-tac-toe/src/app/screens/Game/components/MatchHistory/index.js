@@ -6,6 +6,7 @@ import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
 import { arrayOf, func, boolean } from 'prop-types';
 import { matchPropType } from "~constants/propTypes.js"
+import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants";
 
 class MatchHistory extends Component {
 
@@ -18,16 +19,16 @@ class MatchHistory extends Component {
     renderLine = (data) => {
       return (
       <div key={data.id}>
-        Player one: {data.player_one}, Player two: {data.player_two}, Winner: {data.winner}
+        {PLAYER_ONE} {data.player_one}, {PLAYER_TWO} {data.player_two}, {WINNER} {data.winner}
       </div>
     )}
 
     render() {
         const { isLoading, matchesHistory} = this.props;
-        const matchesLines = matchesHistory.map(this.renderLine);
+        const matchesLines = matchesHistory ? matchesHistory.map(this.renderLine) : GET_ERROR;
         return (
           <div className={styles.matchHistory}>
-            <div> Match History: </div>
+            <div> {MATCH_HISTORY_TITLE} </div>
             {isLoading ? 
               <div className={styles.spinner}>
                 <Spinner />
