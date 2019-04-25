@@ -5,6 +5,8 @@ import Button from '@components/Button';
 import { connect } from 'react-redux';
 import cartActionsCreators from '@redux/cart/actions';
 
+import { CART_TITLE, CART_TOTAL } from '@constants';
+
 import Item from './components/Item';
 import styles from './styles.scss';
 
@@ -21,10 +23,10 @@ class ShoppingCart extends PureComponent {
           <i className="fa fa-shopping-cart" />
         </Button>
         <div className={`${styles.container} ${open ? styles.open : ''}`}>
-          <h1 className={styles.title}>Cart</h1>
+          <h1 className={styles.title}>{CART_TITLE}</h1>
           <ul className={styles.content}>{booksSelected.map(this.renderItem)}</ul>
           <h2 className={`${styles.title} ${styles.total}`}>
-            Total:
+            {CART_TOTAL}
             {booksSelected.reduce(this.total, 0)}
           </h2>
         </div>

@@ -7,6 +7,8 @@ import cartActionsCreators from '@redux/cart/actions';
 import { arrayOf, func } from 'prop-types';
 import { bookPropType, booksSelectedPropType } from '@constants/propTypes';
 
+import { ADD_CART_BUTTON, REMOVE_CART_BUTTON, NO_DATA } from '@constants';
+
 import Book from './components/Book';
 import Search from './components/Search';
 import ShoppingCart from './components/ShoppingCart';
@@ -19,11 +21,11 @@ class App extends Component {
 
   CONFIGURATION_BUTTON = {
     add: {
-      text: 'Add to cart',
+      text: ADD_CART_BUTTON,
       function: this.props.addToCart
     },
     remove: {
-      text: 'Remove',
+      text: REMOVE_CART_BUTTON,
       function: this.props.removeItem,
       isDanger: true
     }
@@ -46,7 +48,7 @@ class App extends Component {
             books.map(this.renderBooks)
           ) : (
             <div className={styles.noData}>
-              <h2 className={styles.title}>No Data</h2>
+              <h2 className={styles.title}>{NO_DATA}</h2>
             </div>
           )}
         </div>
