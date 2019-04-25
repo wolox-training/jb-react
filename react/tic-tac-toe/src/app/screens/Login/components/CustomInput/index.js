@@ -5,7 +5,11 @@ const CustomInput = ( { label, input, type, meta } ) => {
     return (
         <Fragment>
             <label className={styles.label}>{label}</label>
-            <input {...input} type={type} className={styles.input}/>
+            <input {...input}
+                type={type}
+                className={`${styles.input} ${meta.error && meta.touched?
+                styles.inputError:' '}`}
+            />
             { meta.error && meta.touched &&
                 <span className={styles.error}>
                     {meta.error}

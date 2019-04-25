@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form';
 
 class LoginFormContainer extends Component {
     handleSubmit = values => {
-        window.alert(JSON.stringify(values,null,4));
+        alert(JSON.stringify(values,null,4));
     }
 
     render() {
