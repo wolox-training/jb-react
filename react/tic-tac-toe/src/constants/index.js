@@ -8,13 +8,10 @@ export const LINES = [
     [0, 4, 8],
     [2, 4, 6],
   ];
-<<<<<<< HEAD
 export const EMAILRE = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-=======
 
 export const PLAYER_ONE = "Player one: ";
 export const PLAYER_TWO = "Player two: ";
 export const WINNER = "Winner: ";
 export const MATCH_HISTORY_TITLE = "Match History: ";
 export const GET_ERROR = "Error getting the data";
->>>>>>> api-1
