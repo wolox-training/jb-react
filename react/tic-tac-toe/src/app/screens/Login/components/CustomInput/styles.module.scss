@@ -1,3 +1,4 @@
+@import 'src/scss/colors';
 
 .label {
   font-size: 20px;
@@ -5,7 +6,7 @@
 }
 
 .input {
-  border: 1px solid black;
+  border: 1px solid $black;
   border-radius: 10px;
   margin: 10px 0;
   font-size: 20px;
@@ -14,15 +15,14 @@
   }
 
 .input-error {
-  border: 1px solid red;
+  border: 1px solid $red;
 }
 
 .error {
   align-items: center;
-  color: red;
+  color: $red;
   display: flex;
   height: 30px;
   justify-content: center;
   text-align: center;
-  transition: visibility 2s, opacity 0.5s linear;
 }
