@@ -8,9 +8,9 @@ import bookActionsCreators from '@redux/book/actions';
 
 import styles from './styles.scss';
 
-const Search = ({ onSearch }) => (
-  <input className={styles.input} type="text" placeholder={SEARCHPH} onChange={onSearch} />
-);
+function Search({ onSearch }) {
+  return <input className={styles.input} type="text" placeholder={SEARCHPH} onChange={onSearch} />;
+}
 
 Search.propTypes = {
   onSearch: func.isRequired
