@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { func } from 'prop-types';
-import { bookSelectedPropType } from '@constants/propTypes';
+import { booksSelectedPropType } from '@constants/propTypes';
 import Button from '@components/Button';
 import { connect } from 'react-redux';
 import cartActionsCreators from '@redux/cart/actions';
@@ -32,7 +32,7 @@ class Item extends Component {
 }
 
 Item.propTypes = {
-  item: bookSelectedPropType,
+  item: booksSelectedPropType,
   addItem: func.isRequired,
   removeItem: func.isRequired
 };

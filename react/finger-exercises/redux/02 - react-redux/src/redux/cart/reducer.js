@@ -1,7 +1,7 @@
 import { actions } from './actions';
 
 const initialState = {
-  bookSelected: [],
+  booksSelected: [],
   open: false
 };
 
@@ -13,17 +13,17 @@ function reducer(state = initialState, action) {
     case actions.ADD_TO_CART:
       return {
         ...state,
-        bookSelected: state.bookSelected.concat(action.payload)
+        booksSelected: state.booksSelected.concat(action.payload)
       };
     case actions.ADD_ITEM:
       return {
         ...state,
-        bookSelected: incrementById(state.bookSelected, action.payload)
+        booksSelected: incrementById(state.booksSelected, action.payload)
       };
     case actions.REMOVE_ITEM:
       return {
         ...state,
-        bookSelected: state.bookSelected.filter(actual => actual.id !== action.payload)
+        booksSelected: state.booksSelected.filter(actual => actual.id !== action.payload)
       };
     case actions.TOGGLE_CART:
       return {
