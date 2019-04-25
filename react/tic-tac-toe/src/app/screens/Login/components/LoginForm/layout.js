@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 import { isRequired, minLength, validEmail } from '../../utils/validate';
 import { LOGIN_TITLE, EMAIL_LABEL, PASSWORD_LABEL, FORM_SUBMIT_BUTTON} from "~constants/text";
 
-let LoginForm = ({ handleSubmit }) => {
+function LoginForm ({ handleSubmit }) {
   return(
     <form onSubmit={handleSubmit} className={styles.loginForm} >
       <h2 className={styles.formTitle}>{LOGIN_TITLE}</h2>
