@@ -7,8 +7,10 @@ const CustomInput = ( { label, input, type, meta } ) => {
             <label className={styles.label}>{label}</label>
             <input {...input}
                 type={type}
-                className={`${styles.input} ${meta.error && meta.touched?
-                styles.inputError:' '}`}
+                className={`
+                ${styles.input}
+                ${meta.error && meta.touched?styles.inputError:' '}
+                `}
             />
             { meta.error && meta.touched &&
                 <span className={styles.error}>
