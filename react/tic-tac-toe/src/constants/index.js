@@ -8,3 +8,7 @@ export const LINES = [
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+export const PLAYER_ONE = "Player one: ";
+export const PLAYER_TWO = "Player two: ";
+export const WINNER = "Winner: ";
