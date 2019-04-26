@@ -8,7 +8,26 @@ const initialState = {
 
 function reducer(state = initialState, action){
   switch(action.type){
-
+    case actions.LOGIN:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case actions.LOGIN_SUCESS:
+      return {
+        ...state,
+        isLoading: false,
+        hasError: false,
+        token: action.payload.token
+      }
+    case actions.LOGIN_FAIL:
+      return {
+        ...state,
+        isLoading:false,
+        hasError: true
+      }
+    default:
+      return state;
   }
 }
 

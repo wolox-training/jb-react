@@ -1,3 +1,5 @@
+import { login } from "~services/MatchesService";
+
 export const actions = {
   LOGIN: '@@LOGIN/LOGIN',
   LOGIN_SUCESS: '@@LOGIN/LOGIN_SUCESS',
@@ -6,7 +8,17 @@ export const actions = {
 
 const actionCreators = {
   login: data => async dispatch => {
-    dispatch(actions.LOGIN);
+    dispatch({ type: actions.LOGIN });
+    const response = await login.postLogin(data);
+    if (response.ok) {
+      dispatch({
+        type: actions.LOGIN_SUCESS,
+        payload: response.data
+      });
+    }
+    else {
+      dispatch( { type: actions.LOGIN_FAIL } );
+    }
   }
 }
 
