@@ -6,7 +6,7 @@ import Login from './screens/Login'
 import '../scss/application.scss';
 
 function App() {
-  return <Game />;
+  return <Login />;
 }
 
 export default App;

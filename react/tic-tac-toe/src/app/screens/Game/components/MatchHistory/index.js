@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import matches from "~services/MatchesService";
 import { connect } from 'react-redux';
 import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
@@ -32,7 +31,7 @@ class MatchHistory extends Component {
           <div className={styles.spinner}>
             <Spinner />
           </div>
-          : hasError? GET_ERROR : matchesLines}
+          : hasError ? GET_ERROR : matchesLines}
       </div>
     );
   }
