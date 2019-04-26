@@ -9,7 +9,9 @@ import styles from './styles.scss';
 
 class Item extends Component {
   handlePlusClick = () => this.props.addItem(this.props.item.id);
+
   handleTrashClick = () => this.props.removeItem(this.props.item.id);
+
   render() {
     const {
       item: { name, quantity }
