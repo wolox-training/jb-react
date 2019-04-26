@@ -1,13 +1,16 @@
 import React from 'react';
 import { func } from 'prop-types';
 import { connect } from 'react-redux';
+
+import { SEARCHPH } from '@constants';
+
 import bookActionsCreators from '@redux/book/actions';
 
 import styles from './styles.scss';
 
-const Search = ({ onSearch }) => (
-  <input className={styles.input} type="text" placeholder="Search by name" onChange={onSearch} />
-);
+function Search({ onSearch }) {
+  return <input className={styles.input} type="text" placeholder={SEARCHPH} onChange={onSearch} />;
+}
 
 Search.propTypes = {
   onSearch: func.isRequired

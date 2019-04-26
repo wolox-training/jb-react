@@ -3,6 +3,8 @@ import { func, bool, shape, string } from 'prop-types';
 import Button from '@components/Button';
 import { bookPropType } from '@constants/propTypes';
 
+import { BOOK_PUBLICATION } from '@constants';
+
 import styles from './styles.scss';
 
 class Book extends PureComponent {
@@ -35,7 +37,10 @@ class Book extends PureComponent {
               <h1 className={styles.title}>{data.name}</h1>
               <h4 className={styles.subtitle}>{data.author}</h4>
               <p>{data.summary}</p>
-              <h6 className={styles.year}>Publication: {data.year}</h6>
+              <h6 className={styles.year}>
+                {BOOK_PUBLICATION}
+                {data.year}
+              </h6>
             </div>
             <div />
             <div />

@@ -9,6 +9,7 @@ function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.GET_BOOKS: // TODO to implement the logic
       return {
+        ...state,
         originalData: [...action.payload],
         books: [...action.payload]
       };
