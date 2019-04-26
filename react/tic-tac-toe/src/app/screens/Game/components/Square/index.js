@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {func, arrayOf, string, shape} from 'prop-types';
+import { func, arrayOf, string, shape } from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
@@ -12,11 +12,11 @@ class Square extends Component {
   }
 
   render() {
-    return(
+    return (
       <button type="button" className={styles.square} onClick={this.clickHandler}>
         {this.props.current.squares[this.props.id]}
       </button>
-      );
+    );
   }
 }
 
@@ -27,7 +27,7 @@ Square.propTypes = {
   })
 }
 
-const mapStateToProps = ( {game: {current}} ) => ({
+const mapStateToProps = ({ game: { current } }) => ({
   current
 });
 
