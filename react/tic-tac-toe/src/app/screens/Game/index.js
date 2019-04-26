@@ -27,7 +27,7 @@ class Game extends Component {
     });
     let status;
     if(winner) {
-      status = `${WINNER} ${winner}`;
+      status = WINNER + winner;
     } else {
       status = NEXT_PLAYER + (xIsNext ? TIC : TAC);
     }
