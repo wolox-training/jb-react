@@ -5,7 +5,9 @@ import Footer from '@components/Footer';
 import bookActionsCreators from '@redux/book/actions';
 import cartActionsCreators from '@redux/cart/actions';
 import { arrayOf, func } from 'prop-types';
-import { bookPropType, bookSelectedPropType } from '@constants/propTypes';
+import { bookPropType, booksSelectedPropType } from '@constants/propTypes';
+
+import { ADD_CART_BUTTON, REMOVE_CART_BUTTON, NO_DATA } from '@constants';
 
 import Book from './components/Book';
 import Search from './components/Search';
@@ -19,37 +21,38 @@ class App extends Component {
 
   CONFIGURATION_BUTTON = {
     add: {
-      text: 'Add to cart',
+      text: ADD_CART_BUTTON,
       function: this.props.addToCart
     },
     remove: {
-      text: 'Remove',
+      text: REMOVE_CART_BUTTON,
       function: this.props.removeItem,
       isDanger: true
     }
   };
 
   renderBooks = item => {
-    const showButton = !this.props.bookSelected.some(el => el.id === item.id);
+    const showButton = !this.props.booksSelected.some(el => el.id === item.id);
     const configButton = showButton ? this.CONFIGURATION_BUTTON.add : this.CONFIGURATION_BUTTON.remove;
     return <Book key={item.id} data={item} configButton={configButton} />;
   };
 
   render() {
+    const { originalData, books, booksSelected } = this.props;
     return (
       <Fragment>
         <Navbar />
         <div className={styles.container}>
           <Search />
-          {this.props.originalData.length ? (
-            this.props.books.map(this.renderBooks)
+          {originalData.length ? (
+            books.map(this.renderBooks)
           ) : (
             <div className={styles.noData}>
-              <h2 className={styles.title}>No Data</h2>
+              <h2 className={styles.title}>{NO_DATA}</h2>
             </div>
           )}
         </div>
-        {this.props.bookSelected.length ? <ShoppingCart /> : null}
+        {booksSelected.length ? <ShoppingCart /> : null}
         <Footer />
       </Fragment>
     );
@@ -58,7 +61,7 @@ class App extends Component {
 
 const mapStateToProps = ({ books, cart }) => ({
   books: books.books,
-  bookSelected: cart.bookSelected,
+  booksSelected: cart.booksSelected,
   originalData: books.originalData
 });
 
@@ -70,7 +73,7 @@ const mapDispatchToProps = dispatch => ({
 
 App.propTypes = {
   books: arrayOf(bookPropType),
-  bookSelected: arrayOf(bookSelectedPropType),
+  booksSelected: arrayOf(booksSelectedPropType),
   originalData: arrayOf(bookPropType),
   getOriginalBooks: func,
   addToCart: func,
