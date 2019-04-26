@@ -1,15 +1,9 @@
 import { actions } from './actions';
 
 const initialState = {
-<<<<<<< HEAD
-    hasError: false,
-    isLoading: false,
-    matchesHistory: []
-=======
   hasError: false,
   isLoading: false,
   matchesHistory: []
->>>>>>> login-layout
 };
 
 function reducer(state = initialState, action) {
@@ -17,15 +11,11 @@ function reducer(state = initialState, action) {
     case actions.GET_MATCHES:
       return ({
         ...state,
-<<<<<<< HEAD
         isLoading: true
       });
     case actions.GET_MATCHES_SUCCESS:
       return ({
         ...state,
-=======
-        hasError: action.payload ? false : true,
->>>>>>> login-layout
         matchesHistory: action.payload,
         isLoading: false
       });
