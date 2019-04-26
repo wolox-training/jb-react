@@ -1,8 +1,9 @@
 import { actions } from './actions';
 
 const initialState = {
-  isLoading: false,
-  matchesHistory: []
+    hasError: false,
+    isLoading: false,
+    matchesHistory: []
 };
 
 function reducer(state = initialState, action) {
@@ -10,16 +11,22 @@ function reducer(state = initialState, action) {
     case actions.GET_MATCHES:
       return ({
         ...state,
+        isLoading: true
+      });
+    case actions.GET_MATCHES_SUCCESS:
+      return ({
+        ...state,
         matchesHistory: action.payload,
         isLoading: false
       });
-    case actions.TOGGLE_LOADING:
-      return ({
+    case actions.GET_MATCHES_FAIL:
+      return({
         ...state,
-        isLoading: !state.isLoading
-      })
+        isLoading: false,
+        hasError: true
+      });
     default:
-      return state;
+        return state;
   }
 }
 
