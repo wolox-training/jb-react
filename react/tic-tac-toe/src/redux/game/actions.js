@@ -4,11 +4,11 @@ export const actions = {
 };
 
 const actionsCreators = {
-    squareClick: (squareId) => ({
+    squareClick: squareId => ({
         type: actions.SQUARE_CLICK,
         payload: squareId
     }),
-    historyClick: (historyId) => ({
+    historyClick: historyId => ({
         type: actions.HISTORY_CLICK,
         payload: historyId
     }) 
