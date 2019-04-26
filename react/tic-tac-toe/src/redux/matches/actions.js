@@ -5,13 +5,13 @@ export const actions = {
 };
 
 const actionsCreators = {
-    getMatches: matches => ({
-        payload: matches,
-        type: actions.GET_MATCHES
-    }),
-    toggleLoading: () => ({
-        type: actions.TOGGLE_LOADING
-    })
+  getMatches: matches => ({
+    payload: matches,
+    type: actions.GET_MATCHES
+  }),
+  toggleLoading: () => ({
+    type: actions.TOGGLE_LOADING
+  })
 }
 
 export default actionsCreators;
