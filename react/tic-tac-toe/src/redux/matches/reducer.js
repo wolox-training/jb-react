@@ -1,6 +1,7 @@
 import { actions } from './actions';
 
 const initialState = {
+  hasError: false,
   isLoading: false,
   matchesHistory: []
 };
@@ -10,6 +11,7 @@ function reducer(state = initialState, action) {
     case actions.GET_MATCHES:
       return ({
         ...state,
+        hasError: action.payload ? false : true,
         matchesHistory: action.payload,
         isLoading: false
       });
