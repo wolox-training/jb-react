@@ -14,7 +14,6 @@ class MatchHistory extends Component {
     getMatches();
   }
 
-<<<<<<< HEAD
   renderLine = data => {
     return (
     <div key={data.id}>
@@ -31,26 +30,6 @@ class MatchHistory extends Component {
         {isLoading ?
           <div className={styles.spinner}>
             <Spinner />
-=======
-    renderLine = data => {
-      return (
-      <div key={data.id}>
-        {PLAYER_ONE} {data.player_one}, {PLAYER_TWO} {data.player_two}, {WINNER} {data.winner}
-      </div>
-    )}
-
-    render() {
-        const { hasError, isLoading, matchesHistory} = this.props;
-        const matchesLines = matchesHistory ? matchesHistory.map(this.renderLine) : GET_ERROR;
-        return (
-          <div className={styles.matchHistory}>
-          <div> {MATCH_HISTORY_TITLE} </div>
-            {isLoading ?
-              <div className={styles.spinner}>
-                <Spinner />
-              </div>
-              : hasError ? GET_ERROR : matchesLines}
->>>>>>> login-layout
           </div>
           : hasError ? GET_ERROR : matchesLines}
       </div>
