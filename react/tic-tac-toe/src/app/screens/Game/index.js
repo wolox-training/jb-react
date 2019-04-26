@@ -7,17 +7,18 @@ import Board from './components/Board';
 import MatchHistory from './components/MatchHistory';
 import { calculateWinner } from "~utils";
 import gameActionsCreator from "~redux/game/actions";
+import { JUMP_TEXT, GAME_START_TEXT, NEXT_PLAYER, WINNER, TIC, TAC } from "~constants";
 
 class Game extends Component {
 
   render(){
-    const { current, jumpTo } = this.props;
+    const { current, jumpTo, xIsNext } = this.props;
     const history = this.props.history;
     const winner = calculateWinner(current.squares);
     const moves = history.map((step,move) => {
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        JUMP_TEXT + move :
+        GAME_START_TEXT;
         return (
           <li key={move}>
             <button onClick={() => jumpTo(move)}>{desc}</button>
@@ -26,9 +27,9 @@ class Game extends Component {
     });
     let status;
     if(winner) {
-      status = `Winner: ${winner}`;
+      status = WINNER + winner;
     } else {
-      status = 'Next player: ' + (this.props.xIsNext ? 'X' : 'O');
+      status = NEXT_PLAYER + (xIsNext ? TIC : TAC);
     }
 
     return (
