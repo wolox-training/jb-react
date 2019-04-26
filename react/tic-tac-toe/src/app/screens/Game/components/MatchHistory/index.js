@@ -16,7 +16,7 @@ class MatchHistory extends Component {
       matches.getMatches().then(response => getMatches(response.data));
     }
 
-    renderLine = (data) => {
+    renderLine = data => {
       return (
       <div key={data.id}>
         {PLAYER_ONE} {data.player_one}, {PLAYER_TWO} {data.player_two}, {WINNER} {data.winner}

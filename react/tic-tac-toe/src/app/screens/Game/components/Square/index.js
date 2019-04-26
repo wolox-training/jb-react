@@ -27,7 +27,7 @@ Square.propTypes = {
   })
 }
 
-const mapStateToProps = ( {game: {current}} ) => ({
+const mapStateToProps = ({ game: { current } }) => ({
   current
 });
 
