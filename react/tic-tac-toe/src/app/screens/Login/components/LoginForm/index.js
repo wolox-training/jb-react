@@ -5,9 +5,11 @@ import loginActions from "~redux/login/actions";
 import { connect} from 'react-redux';
 
 class LoginFormContainer extends Component {
-  handleSubmit = values => {
-    //values.preventDefault();
-    console.log(JSON.stringify(values, 2,null))
+  handleSubmit = event => {
+    debugger;
+    alert("WORKING");
+    event.preventDefault();
+    //alert(JSON.stringify(values, null, 4));
     //this.login(this.props.values);
   }
 
