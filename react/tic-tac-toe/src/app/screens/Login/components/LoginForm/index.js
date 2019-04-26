@@ -8,7 +8,8 @@ class LoginFormContainer extends Component {
   }
 
   render() {
-    return <LoginForm handleSubmit={this.handleSubmit}/>;
+    const { invalid } = this.props;
+    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid}/>;
   }
 }
 
