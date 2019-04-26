@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import LoginForm from './layout';
 import { reduxForm } from 'redux-form';
+import loginActions from "~redux/login/actions";
+import { connect} from 'react-redux';
 
 class LoginFormContainer extends Component {
   handleSubmit = values => {
-    // here we handle de submit
+    //values.preventDefault();
+    console.log(JSON.stringify(values, 2,null))
+    //this.login(this.props.values);
   }
 
   render() {
@@ -13,8 +17,18 @@ class LoginFormContainer extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  login: values => dispatch(loginActions.login(values)) 
+});
+
+LoginFormContainer = connect(
+  null,
+  mapDispatchToProps
+)(LoginFormContainer);
+
 LoginFormContainer = reduxForm({
   form: 'login'
 })(LoginFormContainer);
+
 
 export default LoginFormContainer;

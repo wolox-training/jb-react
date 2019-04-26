@@ -1,4 +1,4 @@
-import { login } from "~services/MatchesService";
+import login from "~services/LoginService";
 
 export const actions = {
   LOGIN: '@@LOGIN/LOGIN',
