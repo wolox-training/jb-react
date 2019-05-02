@@ -1,88 +1,49 @@
+import React, { Component } from 'react';
 
-import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
-import {LINES} from './constants';
+import MatchHistory from './components/MatchHistory';
+import JumpText from './components/JumpText';
+import { calculateWinner } from '~utils';
+import gameActionsCreator from '~redux/game/actions';
+import { NEXT_PLAYER, WINNER, TIC, TAC } from '~constants';
 
 class Game extends Component {
-  state = {
-    history: [{ squares: Array(9).fill(null)}],
-    stepNumber: 0,
-    xIsNext: true
-  }
-
-  clickHandler = i => {
-    const { history, stepNumber, xIsNext} = this.state;
-    const auxHistory = history.slice(0, stepNumber + 1);
-    const current = auxHistory[auxHistory.length -1];
-    const squares = current.squares.slice();
-    if (this.calculateWinner(squares) || squares[i]) {
-      return;
-    }
-    squares[i] = xIsNext ? 'X' : 'O';
-    this.setState( prevState => ({ 
-      history: auxHistory.concat([{squares}]),
-      stepNumber: auxHistory.length,
-      xIsNext: !prevState.xIsNext 
-      })
-    );
-  }
-
-  jumpTo = step => this.setState({
-      stepNumber: step,
-      xIsNext: (step % 2) === 0
-    });
-
-  calculateWinner = squares => {
-    for (let i = 0; i < LINES.length; i++) {
-      const [a, b, c] = LINES[i];
-      if (squares[a] && 
-      squares[a] === squares[b] && 
-      squares[a] === squares[c]) {
-        return squares[a];
-      }
-    }
-    return null;
-  }
-
-  render(){
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
-    const winner = this.calculateWinner(current.squares);
-
-    const moves = history.map((step,move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
-        return (
-          <li key={move}>
-            <button onClick={()=> this.jumpTo(move)}>{desc}</button>
-          </li>
-        );
-    }
-    );
-
-    let status;
-    if(winner) {
-      status = `Winner: ${winner}`;
+  render() {
+    const { current, xIsNext } = this.props;
+    const history = this.props.history;
+    const winner = calculateWinner(current.squares);
+    const moves = history.map((step, move) => <JumpText move={move} />);
+    let status = null;
+    if (winner) {
+      status = WINNER + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = NEXT_PLAYER + (xIsNext ? TIC : TAC);
     }
-    
+
     return (
       <div className={styles.game}>
-        <Board
-          squares={current.squares}
-          onClick={this.clickHandler} 
-        />
+        <Board />
         <div className={styles.gameInfo}>
           {status}
           <ol>{moves}</ol>
         </div>
+        <MatchHistory />
       </div>
     );
   }
 }
 
-export default Game;
+const mapStateToProps = ({ game: { history, stepNumber, xIsNext, current } }) => ({
+  history,
+  stepNumber,
+  xIsNext,
+  current
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Game);
