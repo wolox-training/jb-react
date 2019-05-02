@@ -6,10 +6,14 @@ import { connect} from 'react-redux';
 
 class LoginFormContainer extends Component {
   handleSubmit = event => {
-    alert("WORKING");
+    const data = new FormData(event.target);
+    const send = {
+      email: data.get('email'),
+      password: data.get('password')
+    };
+    const { login } = this.props;;
+    login(send);
     event.preventDefault();
-    //alert(JSON.stringify(values, null, 4));
-    //this.login(this.props.values);
   }
 
   render() {
