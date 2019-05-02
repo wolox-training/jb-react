@@ -4,7 +4,7 @@ const initialState = {
   isLoading: false,
   hasError: false,
   token: null
-}
+};
 
 function reducer(state = initialState, action) {
   switch (action.type) {

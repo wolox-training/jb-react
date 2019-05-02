@@ -19,6 +19,6 @@ const actionCreators = {
       dispatch({ type: actions.LOGIN_FAIL });
     }
   }
-}
+};
 
 export default actionCreators;
