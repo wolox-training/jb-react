@@ -4,12 +4,12 @@ import { reduxForm } from 'redux-form';
 
 class LoginFormContainer extends Component {
   handleSubmit = values => {
-    // here we handle de submit
+    // TODO: add submit handling
   }
 
   render() {
     const { invalid } = this.props;
-    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid}/>;
+    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid} />;
   }
 }
 
