@@ -4,7 +4,7 @@ import Square from '../Square';
 import { number } from 'prop-types';
 import styles from './styles.module.scss';
 
-const Board = () => {
+function Board() {
   return (
     <div className={styles.gameBoard}>
       <div className={styles.boardRow}>
