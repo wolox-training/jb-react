@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import CustomInput from '../CustomInput';
 import styles from './styles.module.scss';
 import { isRequired, minLength, validEmail } from '../../utils/validate';
@@ -37,4 +37,6 @@ function LoginForm({ handleSubmit, invalid, hasError }) {
   );
 }
 
-export default LoginForm;
+export default reduxForm({
+  form: 'login'
+})(LoginForm);
