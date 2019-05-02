@@ -15,7 +15,7 @@ class LoginFormContainer extends Component {
 
   render() {
     const { invalid } = this.props;
-    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid}/>;
+    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid} />;
   }
 }
 
@@ -31,6 +31,5 @@ LoginFormContainer = connect(
 LoginFormContainer = reduxForm({
   form: 'login'
 })(LoginFormContainer);
-
 
 export default LoginFormContainer;
