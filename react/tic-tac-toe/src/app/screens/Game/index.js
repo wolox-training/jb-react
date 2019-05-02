@@ -51,7 +51,6 @@ const mapStateToProps = ({ game: { history,stepNumber, xIsNext, current } }) => 
   xIsNext: xIsNext,
   current: current
   });
-
 const mapDispatchToProps = dispatch => ({
   jumpTo: historyId => dispatch(gameActionsCreator.historyClick(historyId))
 });
