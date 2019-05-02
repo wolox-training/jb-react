@@ -6,6 +6,7 @@ import { connect} from 'react-redux';
 
 class LoginFormContainer extends Component {
   handleSubmit = event => {
+    debugger;
     const data = new FormData(event.target);
     const send = {
       email: data.get('email'),
@@ -17,17 +18,21 @@ class LoginFormContainer extends Component {
   }
 
   render() {
-    const { invalid } = this.props;
-    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid} />;
+    const { invalid, hasError } = this.props;
+    return <LoginForm onSubmit={this.handleSubmit} invalid={invalid} error={hasError}/>;
   }
 }
+
+const mapStateToProps = ({ hasError }) => ({
+  hasError
+});
 
 const mapDispatchToProps = dispatch => ({
   login: values => dispatch(loginActions.login(values)) 
 });
 
 LoginFormContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(LoginFormContainer);
 
