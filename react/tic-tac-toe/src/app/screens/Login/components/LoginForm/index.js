@@ -6,7 +6,6 @@ import { connect} from 'react-redux';
 
 class LoginFormContainer extends Component {
   handleSubmit = event => {
-    debugger;
     alert("WORKING");
     event.preventDefault();
     //alert(JSON.stringify(values, null, 4));

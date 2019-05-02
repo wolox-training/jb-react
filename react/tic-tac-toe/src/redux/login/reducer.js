@@ -6,8 +6,8 @@ const initialState = {
   token: null
 }
 
-function reducer(state = initialState, action){
-  switch(action.type){
+function reducer(state = initialState, action) {
+  switch (action.type) {
     case actions.LOGIN:
       return {
         ...state,
@@ -19,13 +19,13 @@ function reducer(state = initialState, action){
         isLoading: false,
         hasError: false,
         token: action.payload.token
-      }
+      };
     case actions.LOGIN_FAIL:
       return {
         ...state,
-        isLoading:false,
+        isLoading: false,
         hasError: true
-      }
+      };
     default:
       return state;
   }
