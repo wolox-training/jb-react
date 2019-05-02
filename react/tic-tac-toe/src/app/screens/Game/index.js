@@ -10,23 +10,23 @@ import gameActionsCreator from "~redux/game/actions";
 import { JUMP_TEXT, GAME_START_TEXT, NEXT_PLAYER, WINNER, TIC, TAC } from "~constants";
 
 class Game extends Component {
+  jumpText = move => {
+    return move ? JUMP_TEXT + move : GAME_START_TEXT;
+  }
 
-  render(){
+  render() {
     const { current, jumpTo, xIsNext } = this.props;
     const history = this.props.history;
     const winner = calculateWinner(current.squares);
-    const moves = history.map((step,move) => {
-      const desc = move ?
-        JUMP_TEXT + move :
-        GAME_START_TEXT;
-        return (
-          <li key={move}>
-            <button onClick={() => jumpTo(move)}>{desc}</button>
-          </li>
-        );
+    const moves = history.map((step, move) => {
+      return (
+        <li key={move}>
+          <button onClick={() => jumpTo(move)}>{this.jumpText(move)}</button>
+        </li>
+      );
     });
-    let status;
-    if(winner) {
+    let status = null;
+    if (winner) {
       status = WINNER + winner;
     } else {
       status = NEXT_PLAYER + (xIsNext ? TIC : TAC);
@@ -44,12 +44,14 @@ class Game extends Component {
     );
   }
 }
-const mapStateToProps = ( {game} ) => ({
-  history: game.history,
-  stepNumber: game.stepNumber,
-  xIsNext: game.xIsNext,
-  current: game.current
+
+const mapStateToProps = ({ game: { history,stepNumber, xIsNext, current } }) => ({
+  history: history,
+  stepNumber: stepNumber,
+  xIsNext: xIsNext,
+  current: current
   });
+
 const mapDispatchToProps = dispatch => ({
   jumpTo: historyId => dispatch(gameActionsCreator.historyClick(historyId))
 });
