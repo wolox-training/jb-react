@@ -8,4 +8,5 @@ import thunk from 'redux-thunk';
 
 const enhancers = [applyMiddleware(thunk)];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-export default createStore(combineReducers({ game, matches, form, login }), composeEnhancers(...enhancers));
+const rootReducer = combineReducers({ game, matches, form, login });
+export default createStore(rootReducer, composeEnhancers(...enhancers));
