@@ -3,16 +3,14 @@ import styles from './styles.module.scss';
 import { connect } from 'react-redux';
 import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
-import matches from '~services/MatchesService'
 import { arrayOf, func, boolean } from 'prop-types';
 import { matchPropType } from "~constants/propTypes.js"
 import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants";
 
 class MatchHistory extends Component {
   componentDidMount() {
-    const { toggleLoading, getMatches } = this.props;
-    toggleLoading();
-    matches.getMatches().then(response => getMatches(response.data));
+    const { getMatches } = this.props;
+    getMatches();
   }
 
   renderLine = data => (
