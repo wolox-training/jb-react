@@ -1,7 +1,6 @@
-
 export const actions = {
-    GET_MATCHES: '@@MATCHES/GET_MATCHES',
-    TOGGLE_LOADING: '@@MATCHES/TOGGLE_LOADING'
+  GET_MATCHES: '@@MATCHES/GET_MATCHES',
+  TOGGLE_LOADING: '@@MATCHES/TOGGLE_LOADING'
 };
 
 const actionsCreators = {

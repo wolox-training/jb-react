@@ -11,7 +11,7 @@ const actionsCreators = {
   historyClick: historyId => ({
     type: actions.HISTORY_CLICK,
     payload: historyId
-  }) 
+  })
 };
 
 export default actionsCreators;

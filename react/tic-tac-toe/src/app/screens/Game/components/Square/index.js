@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {func, arrayOf, string, shape} from 'prop-types';
+import { func, arrayOf, string, shape } from 'prop-types';
 import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';

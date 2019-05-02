@@ -9,34 +9,30 @@ import { matchPropType } from "~constants/propTypes.js"
 import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants";
 
 class MatchHistory extends Component {
+  componentDidMount() {
+    const { toggleLoading, getMatches } = this.props;
+    toggleLoading();
+    matches.getMatches().then(response => getMatches(response.data));
+  }
 
-    componentDidMount = () => {
-      const { toggleLoading, getMatches} = this.props;
-      toggleLoading();
-      matches.getMatches().then(response => getMatches(response.data));
-    }
+  renderLine = data => (
+    <div key={data.id}>
+      {PLAYER_ONE} {data.player_one}, {PLAYER_TWO} {data.player_two}, {WINNER} {data.winner}
+    </div>
+  )
 
-    renderLine = data => {
-      return (
-      <div key={data.id}>
-        {PLAYER_ONE} {data.player_one}, {PLAYER_TWO} {data.player_two}, {WINNER} {data.winner}
+  render() {
+    const { hasError, isLoading, matchesHistory} = this.props;
+    const matchesLines = hasError || !matchesHistory ? GET_ERROR : matchesHistory.map(this.renderLine);
+    return (
+      <div className={styles.matchHistory}>
+      {MATCH_HISTORY_TITLE}
+        {isLoading ?
+          <Spinner className={styles.spinner}/>
+          : matchesLines}
       </div>
-    )}
-
-    render() {
-        const { hasError, isLoading, matchesHistory} = this.props;
-        const matchesLines = matchesHistory ? matchesHistory.map(this.renderLine) : GET_ERROR;
-        return (
-          <div className={styles.matchHistory}>
-          <div> {MATCH_HISTORY_TITLE} </div>
-            {isLoading ?
-              <div className={styles.spinner}>
-                <Spinner />
-              </div>
-              : hasError ? GET_ERROR : matchesLines}
-          </div>
-        );
-    }
+    );
+  }
 }
 
 MatchHistory.propType = {
@@ -48,12 +44,12 @@ MatchHistory.propType = {
 }
 
 const mapStateToProps = ( { matches: {isLoading, matchesHistory}} ) => ({
-    isLoading,
-    matchesHistory
+  isLoading,
+  matchesHistory
 });
 const mapDispatchToProps = dispatch => ({
-    getMatches: data => dispatch(matchActions.getMatches(data)),
-    toggleLoading: () => dispatch(matchActions.toggleLoading())
+  getMatches: data => dispatch(matchActions.getMatches(data)),
+  toggleLoading: () => dispatch(matchActions.toggleLoading())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MatchHistory);
