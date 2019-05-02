@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import Square from '../Square';
-import { number } from 'prop-types';
 import styles from './styles.module.scss';
 
 function Board() {
@@ -24,10 +23,6 @@ function Board() {
       </div>
     </div>
   );
-};
-
-Board.propTypes = {
-  id: number
-};
+}
 
 export default Board;

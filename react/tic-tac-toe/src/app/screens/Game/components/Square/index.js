@@ -12,9 +12,10 @@ class Square extends Component {
   }
 
   render() {
+    const { current, id } = this.props;
     return(
       <button type="button" className={styles.square} onClick={this.clickHandler}>
-        {this.props.current.squares[this.props.id]}
+        {current.squares[id]}
       </button>
       );
   }
