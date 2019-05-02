@@ -18,7 +18,7 @@ function reducer(state = initialState, action) {
         ...state,
         isLoading: false,
         hasError: false,
-        token: action.payload.token
+        token: action.payload
       };
     case actions.LOGIN_FAIL:
       return {

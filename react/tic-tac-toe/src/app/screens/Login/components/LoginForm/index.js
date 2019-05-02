@@ -15,7 +15,7 @@ class LoginFormContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ hasError }) => ({
+const mapStateToProps = ({ login: { hasError } }) => ({
   hasError
 });
 
