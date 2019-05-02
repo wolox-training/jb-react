@@ -13,7 +13,7 @@ const actionCreators = {
     if (response.ok) {
       dispatch({
         type: actions.LOGIN_SUCESS,
-        payload: response.data
+        payload: response.data.token
       });
     } else {
       dispatch({ type: actions.LOGIN_FAIL });

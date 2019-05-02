@@ -11,7 +11,7 @@ class LoginFormContainer extends Component {
 
   render() {
     const { hasError } = this.props;
-    return <LoginForm onSubmit={this.handleSubmit} error={hasError}/>;
+    return <LoginForm onSubmit={this.handleSubmit} hasError={hasError}/>;
   }
 }
 
