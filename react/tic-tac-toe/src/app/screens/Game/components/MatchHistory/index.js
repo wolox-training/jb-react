@@ -52,4 +52,7 @@ const mapDispatchToProps = dispatch => ({
   toggleLoading: () => dispatch(matchActions.toggleLoading())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MatchHistory);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MatchHistory);

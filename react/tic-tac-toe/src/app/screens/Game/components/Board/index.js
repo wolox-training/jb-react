@@ -5,10 +5,7 @@ import { number } from 'prop-types';
 import styles from './styles.module.scss';
 
 class Board extends Component {
-
-  renderSquare(i) {
-    return <Square id={i} />;
-  }
+  renderSquare = i => <Square id={i} />;
 
   render() {
     return (
