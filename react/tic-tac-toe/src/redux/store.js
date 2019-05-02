@@ -16,7 +16,7 @@ const rootReducer = routerHistory =>
     router: connectRouter(routerHistory)
   });
 
-const history = createBrowserHistory();
+export const history = createBrowserHistory();
 const enhancers = [applyMiddleware(thunk, routerMiddleware(history))];
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export default createStore(rootReducer(history), composeEnhancers(...enhancers));
