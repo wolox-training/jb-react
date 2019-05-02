@@ -7,26 +7,26 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  switch(action.type){
+  switch (action.type) {
     case actions.GET_MATCHES:
-      return ({
+      return {
         ...state,
         isLoading: true
-      });
+      };
     case actions.GET_MATCHES_SUCCESS:
-      return ({
+      return {
         ...state,
         matchesHistory: action.payload,
         isLoading: false
-      });
+      };
     case actions.GET_MATCHES_FAIL:
-      return({
+      return {
         ...state,
         isLoading: false,
         hasError: true
-      });
+      };
     default:
-        return state;
+      return state;
   }
 }
 

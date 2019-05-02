@@ -1,4 +1,4 @@
-import matches from "~services/MatchesService";
+import matches from '~services/MatchesService';
 
 export const actions = {
   GET_MATCHES: '@@MATCHES/GET_MATCHES',
@@ -21,6 +21,6 @@ const actionsCreators = {
       });
     }
   }
-}
+};
 
 export default actionsCreators;

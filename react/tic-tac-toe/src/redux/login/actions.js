@@ -1,4 +1,4 @@
-import login from "~services/LoginService";
+import login from '~services/LoginService';
 
 export const actions = {
   LOGIN: '@@LOGIN/LOGIN',
@@ -15,9 +15,8 @@ const actionCreators = {
         type: actions.LOGIN_SUCESS,
         payload: response.data
       });
-    }
-    else {
-      dispatch( { type: actions.LOGIN_FAIL } );
+    } else {
+      dispatch({ type: actions.LOGIN_FAIL });
     }
   }
 }
