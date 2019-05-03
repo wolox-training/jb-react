@@ -9,6 +9,7 @@ import PrivateRoute from './components/PrivateRoute';
 import { isLogged } from './utils/validate';
 
 import '../scss/application.scss';
+import ConditionalRedirect from './components/ConditionalRedirect';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Switch>
         <PrivateRoute strict path="/game" component={Game} condition={isLogged} redirect="/login" />
         <Route strict path="/login" component={Login} />
-        <Redirect to="/login" />
+        <ConditionalRedirect condition={isLogged} first="/game" second="/login" />
       </Switch>
     </ConnectedRouter>
   );
