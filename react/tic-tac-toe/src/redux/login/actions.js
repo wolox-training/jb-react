@@ -17,8 +17,8 @@ const actionCreators = {
         type: actions.LOGIN_SUCESS
       });
       window.localStorage.setItem('token', response.data.token);
-      dispatch(push('/game'));
       api.setHeaders({ token: response.data.token });
+      dispatch(push('/game'));
     } else {
       dispatch({ type: actions.LOGIN_FAIL });
     }

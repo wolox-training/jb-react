@@ -5,7 +5,7 @@ import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
 import { arrayOf, func, boolean } from 'prop-types';
 import { matchPropType } from "~constants/propTypes.js"
-import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants";
+import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants/text";
 
 class MatchHistory extends Component {
   componentDidMount() {
