@@ -6,16 +6,15 @@ import { history } from '~redux/store';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import PrivateRoute from './components/PrivateRoute';
+import { connect } from 'react-redux';
 
 import '../scss/application.scss';
 
-const validate = true;
-
-function App() {
+function App({ token }) {
   return (
     <ConnectedRouter history={history}>
       <Switch>
-        <PrivateRoute strict path="/game" component={Game} auth={validate} />
+        <PrivateRoute strict path="/game" component={Game} auth={token} />
         <Route strict path="/login" component={Login} />
         <Redirect to="/login" />
       </Switch>
@@ -23,4 +22,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = ({ login: { token } }) => ({
+  token
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);

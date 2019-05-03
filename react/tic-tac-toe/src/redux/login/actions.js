@@ -1,4 +1,5 @@
 import login from '~services/LoginService';
+import { push } from 'connected-react-router';
 
 export const actions = {
   LOGIN: '@@LOGIN/LOGIN',
@@ -15,6 +16,7 @@ const actionCreators = {
         type: actions.LOGIN_SUCESS,
         payload: response.data.token
       });
+      dispatch(push('/game'));
     } else {
       dispatch({ type: actions.LOGIN_FAIL });
     }
