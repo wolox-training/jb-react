@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-function PrivateRoute({ component: Component, condition, redirect, ...rest }) {
+function ConditionalRoute({ component: Component, condition, redirect, ...rest }) {
   return (
     <Route
       {...rest}
@@ -10,4 +10,4 @@ function PrivateRoute({ component: Component, condition, redirect, ...rest }) {
   );
 }
 
-export default PrivateRoute;
+export default ConditionalRoute;
