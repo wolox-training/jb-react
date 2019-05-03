@@ -7,7 +7,7 @@ import Board from './components/Board';
 import MatchHistory from './components/MatchHistory';
 import JumpText from './components/JumpText';
 import { calculateWinner } from '~utils';
-import { NEXT_PLAYER, WINNER, TIC, TAC } from '~constants';
+import { NEXT_PLAYER, WINNER, TIC, TAC } from '~constants/text';
 
 class Game extends Component {
   render() {
