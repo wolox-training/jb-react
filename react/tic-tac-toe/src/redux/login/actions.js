@@ -1,5 +1,6 @@
 import login from '~services/LoginService';
 import { push } from 'connected-react-router';
+import api from '~config/api';
 
 export const actions = {
   LOGIN: '@@LOGIN/LOGIN',
@@ -17,6 +18,7 @@ const actionCreators = {
       });
       window.localStorage.setItem('token', response.data.token);
       dispatch(push('/game'));
+      api.setHeaders({ token: response.data.token });
     } else {
       dispatch({ type: actions.LOGIN_FAIL });
     }
