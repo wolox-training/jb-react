@@ -2,8 +2,7 @@ import { actions } from './actions';
 
 const initialState = {
   isLoading: false,
-  hasError: false,
-  token: null
+  hasError: false
 };
 
 function reducer(state = initialState, action) {
@@ -17,8 +16,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        hasError: false,
-        token: action.payload
+        hasError: false
       };
     case actions.LOGIN_FAIL:
       return {
