@@ -6,9 +6,9 @@ function TopBar() {
   return (
     <nav className={styles.navbar}>
       <img src={logo} className={styles.logo} />
-      <div className={styles.game}> Game </div>
-      <div> Game History </div>
-      <div> logout </div>
+      <div className={styles.tabs}> Game </div>
+      <div className={styles.tabs}> Game History </div>
+      <div className={styles.logout}> logout </div>
     </nav>
   );
 }
