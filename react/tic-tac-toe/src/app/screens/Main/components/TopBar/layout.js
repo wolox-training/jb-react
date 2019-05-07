@@ -8,7 +8,7 @@ function TopBar({ onLogoutClick, onGameClick, onGameHistoryClick }) {
     <nav className={styles.navbar}>
       <img src={logo} className={styles.logo} />
       <TopBarButton label="Game" handleClick={onGameClick} buttonClass="fas fa-gamepad" />
-      <TopBarButton label="Game History" handleClick={onGameHistoryClick} buttonClass="fas fa-history" />
+      <TopBarButton label="Match History" handleClick={onGameHistoryClick} buttonClass="fas fa-history" />
       <TopBarButton label="Logout" handleClick={onLogoutClick} buttonClass="fas fa-sign-out-alt" />
     </nav>
   );

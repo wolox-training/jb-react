@@ -8,7 +8,6 @@ import ConditionalRoute from './components/ConditionalRoute';
 import { isLogged } from './utils/validate';
 
 import '../scss/application.scss';
-import ConditionalRedirect from './components/ConditionalRedirect';
 
 function App() {
   return (
