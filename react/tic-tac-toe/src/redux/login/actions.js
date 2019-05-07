@@ -5,7 +5,8 @@ import api from '~config/api';
 export const actions = {
   LOGIN: '@@LOGIN/LOGIN',
   LOGIN_SUCESS: '@@LOGIN/LOGIN_SUCESS',
-  LOGIN_FAIL: '@@LOGIN/LOGIN_FAIL'
+  LOGIN_FAIL: '@@LOGIN/LOGIN_FAIL',
+  LOGOUT: '@@LOGIN/LOGOUT'
 };
 
 const actionCreators = {
@@ -17,7 +18,7 @@ const actionCreators = {
         type: actions.LOGIN_SUCESS
       });
       window.localStorage.setItem('token', response.data.token);
-      api.setHeaders({ token: response.data.token });
+      api.setHeader('token', response.data.token);
       dispatch(push('/game'));
     } else {
       dispatch({ type: actions.LOGIN_FAIL });
