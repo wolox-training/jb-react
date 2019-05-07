@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import logo from '../../../../assets/wolox_logo.svg';
+import logo from '../../../../assets/wolox_logo_white.svg';
 
 function TopBar() {
   return (
