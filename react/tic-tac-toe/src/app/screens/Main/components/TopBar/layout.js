@@ -8,6 +8,8 @@ function TopBar() {
     <nav className={styles.navbar}>
       <img src={logo} className={styles.logo} />
       <TopBarButton label="Game" buttonClass="fas fa-gamepad" />
+      <TopBarButton label="Game History" buttonClass="fas fa-history" />
+      <TopBarButton label="Logout" buttonClass="fas fa-sign-out-alt" />
     </nav>
   );
 }

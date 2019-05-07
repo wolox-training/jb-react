@@ -1,8 +1,17 @@
 .button {
     color: white;
     font-size: 15px;
+    margin: 0 15px;
 
     .image {
         margin-right: 5px;
     }
+}
+
+.button:last-child {
+    margin-left: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+    
 }
