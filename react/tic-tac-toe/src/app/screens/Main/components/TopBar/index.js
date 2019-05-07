@@ -10,8 +10,18 @@ class TopBarContainer extends Component {
     push('/login');
   }
 
+  handleGameHistory = () => {
+    const { push } = this.props;
+    push('/history');
+  }
+
+  handleGame = () => {
+    const { push } = this.props;
+    push('/game');
+  }
+
   render() {
-    return <TopBar onLogoutClick={this.handleLogout} />;
+    return <TopBar onLogoutClick={this.handleLogout} onGameClick={this.handleGame} onGameHistoryClick={this.handleGameHistory} />;
   }
 }
 
