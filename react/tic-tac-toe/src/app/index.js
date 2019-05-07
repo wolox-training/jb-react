@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Login from './screens/Login';
 import Main from './screens/Main';
@@ -12,9 +12,9 @@ import '../scss/application.scss';
 function App() {
   return (
     <ConnectedRouter history={history}>
-      <Fragment>
+      <Switch>
         <ConditionalRoute path="/" publicComponent={Login} privateComponent={Main} condition={isLogged} />
-      </Fragment>
+      </Switch>
     </ConnectedRouter>
   );
 }
