@@ -1,5 +1,8 @@
 import api from '~config/api';
+import { wrapService } from 'redux-recompose';
 
-export default {
+const service = {
   postLogin: data => api.post('/login', data)
 };
+
+export default service;

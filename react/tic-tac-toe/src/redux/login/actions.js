@@ -8,17 +8,23 @@ const $ = createExternalActions('login');
 
 const actionCreators = {
   login: data => async dispatch => {
-    dispatch({ type: actions.LOGIN });
+    dispatch({ type: $.LOGIN });
     const response = await login.postLogin(data);
     if (response.ok) {
       dispatch({
-        type: actions.LOGIN_SUCCESS
+        type: $.LOGIN_SUCCESS,
+        target: 'matches',
+        payload: response.data.token
       });
       window.localStorage.setItem('token', response.data.token);
       api.setHeader('token', response.data.token);
       dispatch(push('/game'));
     } else {
-      dispatch({ type: actions.LOGIN_FAIL });
+      dispatch({
+        type: $.LOGIN_FAIL,
+        target: 'matches',
+        payload: response.problem
+      });
     }
   }
 };

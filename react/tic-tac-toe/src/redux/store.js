@@ -1,5 +1,4 @@
 import game from './game/reducer';
-import matches from './matches/reducer';
 import login from './login/reducer';
 import { createBrowserHistory } from 'history';
 import { reducer as form } from 'redux-form';
@@ -13,7 +12,6 @@ const combineReducers = wrapCombineReducers(CR);
 const rootReducer = routerHistory =>
   combineReducers({
     game,
-    matches,
     form,
     login,
     router: connectRouter(routerHistory)
