@@ -7,11 +7,10 @@ function ConditionalRoute({
   condition,
   ...rest
 }) {
-  debugger;
   return (
     <Route
       {...rest}
-      render={props => (condition ? <PrivateComponent {...props} /> : <PublicComponent {...props} />)}
+      render={props => (condition() ? <PrivateComponent {...props} /> : <PublicComponent {...props} />)}
     />
   );
 }

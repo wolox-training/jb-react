@@ -10,11 +10,9 @@ import { isLogged } from './utils/validate';
 import '../scss/application.scss';
 
 function App() {
-  const condition = isLogged();
-  debugger;
   return (
     <ConnectedRouter history={history}>
-      <ConditionalRoute path="/" publicComponent={Login} privateComponent={Main} condition={condition} />
+      <ConditionalRoute path="/" publicComponent={Login} privateComponent={Main} condition={isLogged} />
     </ConnectedRouter>
   );
 }
