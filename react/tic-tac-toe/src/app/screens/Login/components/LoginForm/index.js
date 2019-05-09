@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 
 class LoginFormContainer extends Component {
   handleSubmit = data => {
-    const { login } = this.props;;
-    login(data);
+    const { dispatch, postLogin } = this.props;
+    dispatch(postLogin(data));
   }
 
   render() {
@@ -15,17 +15,13 @@ class LoginFormContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ login: { hasError } }) => ({
-  hasError
-});
-
-const mapDispatchToProps = dispatch => ({
-  login: values => dispatch(loginActions.login(values)) 
+const mapStateToProps = ({ login: { postLogin, hasError } }) => ({
+  postLogin
 });
 
 LoginFormContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(LoginFormContainer);
 
 export default LoginFormContainer;
