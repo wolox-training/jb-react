@@ -1,0 +1,28 @@
+@import 'src/scss/colors';
+
+.label {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.input {
+  border: 1px solid $black;
+  border-radius: 10px;
+  font-size: 20px;
+  height: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  }
+
+.input-error {
+  border: 1px solid $red;
+}
+
+.error {
+  align-items: center;
+  color: $red;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  text-align: center;
+}
