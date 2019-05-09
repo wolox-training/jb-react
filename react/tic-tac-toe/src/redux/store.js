@@ -4,8 +4,11 @@ import login from './login/reducer';
 import { createBrowserHistory } from 'history';
 import { reducer as form } from 'redux-form';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import { createStore, compose, combineReducers as CR, applyMiddleware } from 'redux';
+import { wrapCombineReducers } from 'redux-recompose';
 import thunk from 'redux-thunk';
+
+const combineReducers = wrapCombineReducers(CR);
 
 const rootReducer = routerHistory =>
   combineReducers({
