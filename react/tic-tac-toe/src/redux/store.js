@@ -1,5 +1,6 @@
 import game from './game/reducer';
 import login from './login/reducer';
+import matches from './matches/reducer';
 import { createBrowserHistory } from 'history';
 import { reducer as form } from 'redux-form';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
@@ -14,6 +15,7 @@ const rootReducer = routerHistory =>
     game,
     form,
     login,
+    matches,
     router: connectRouter(routerHistory)
   });
 
