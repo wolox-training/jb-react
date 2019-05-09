@@ -12,7 +12,7 @@ function reducer(state = initialState, action) {
         ...state,
         isLoading: true
       };
-    case actions.LOGIN_SUCESS:
+    case actions.LOGIN_SUCCESS:
       return {
         ...state,
         isLoading: false,

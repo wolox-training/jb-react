@@ -1,13 +1,10 @@
 import login from '~services/LoginService';
 import { push } from 'connected-react-router';
 import api from '~config/api';
+import { completeTypes, createTypes, createExternalActions } from 'redux-recompose';
 
-export const actions = {
-  LOGIN: '@@LOGIN/LOGIN',
-  LOGIN_SUCESS: '@@LOGIN/LOGIN_SUCESS',
-  LOGIN_FAIL: '@@LOGIN/LOGIN_FAIL',
-  LOGOUT: '@@LOGIN/LOGOUT'
-};
+export const actions = createTypes(completeTypes(['LOGIN']), '@@LOGIN');
+const $ = createExternalActions('login');
 
 const actionCreators = {
   login: data => async dispatch => {
@@ -15,7 +12,7 @@ const actionCreators = {
     const response = await login.postLogin(data);
     if (response.ok) {
       dispatch({
-        type: actions.LOGIN_SUCESS
+        type: actions.LOGIN_SUCCESS
       });
       window.localStorage.setItem('token', response.data.token);
       api.setHeader('token', response.data.token);

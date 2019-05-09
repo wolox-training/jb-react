@@ -1,7 +1,6 @@
-export const actions = {
-  SQUARE_CLICK: '@@GAME/SQUARE_CLICK',
-  HISTORY_CLICK: '@@GAME/HISTORY_CLICK'
-};
+import { createTypes } from 'redux-recompose';
+
+export const actions = createTypes(['SQUARE_CLICK', 'HISTORY_CLICK'], '@@GAME');
 
 const actionsCreators = {
   squareClick: squareId => ({

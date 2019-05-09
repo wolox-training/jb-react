@@ -1,10 +1,8 @@
 import matches from '~services/MatchesService';
+import { createTypes, completeTypes, createExternalActions } from 'redux-recompose';
 
-export const actions = {
-  GET_MATCHES: '@@MATCHES/GET_MATCHES',
-  GET_MATCHES_SUCCESS: '@@MATCHES/GET_MATCHES_SUCCESS',
-  GET_MATCHES_FAIL: '@@MATCHES/GET_MATCHES_FAIL'
-};
+export const actions = createTypes(completeTypes(['GET_MATCHES']), '@@MATCHES');
+const $ = createExternalActions('matches');
 
 const actionsCreators = {
   getMatches: () => async dispatch => {
