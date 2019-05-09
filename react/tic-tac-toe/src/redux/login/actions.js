@@ -1,31 +1,9 @@
-import login from '~services/LoginService';
-import { push } from 'connected-react-router';
-import api from '~config/api';
-import { createExternalActions } from 'redux-recompose';
+import { createTypes } from 'redux-recompose';
 
-const $ = createExternalActions('login');
+export const actions = createTypes(['OTHER_ACTION'], '@@LOGIN');
 
 const actionCreators = {
-  login: data => async dispatch => {
-    dispatch({
-      type: $.LOADING,
-      target: 'token'
-    });
-    const response = await login.postLogin(data);
-    if (response.ok) {
-      dispatch({
-        type: $.SUCCESS,
-        target: 'token',
-        payload: response.data.token
-      });
-    } else {
-      dispatch({
-        type: $.FAILURE,
-        target: 'token',
-        payload: response.problem
-      });
-    }
-  }
+  otherAction: () => ({ type: actions.OTHER_ACTION })
 };
 
 export default actionCreators;

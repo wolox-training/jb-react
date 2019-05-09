@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import LoginForm from './layout';
-import loginActions from "~redux/login/actions";
 import { connect } from 'react-redux';
+import LoginService from '~services/LoginService';
 
 class LoginFormContainer extends Component {
   handleSubmit = data => {
-    const { dispatch, postLogin } = this.props;
-    dispatch(postLogin(data));
+    this.props.dispatch(LoginService.postLogin(data));
   }
 
   render() {
@@ -15,13 +14,14 @@ class LoginFormContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ login: { postLogin, hasError } }) => ({
-  postLogin
+LoginFormContainer.defaultProps = {
+  token: null
+};
+
+const mapStateToProps = ({ login: { token } }) => ({
+  token
 });
 
-LoginFormContainer = connect(
-  mapStateToProps,
-  null
-)(LoginFormContainer);
+LoginFormContainer = connect(mapStateToProps)(LoginFormContainer);
 
 export default LoginFormContainer;

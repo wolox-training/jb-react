@@ -1,17 +1,13 @@
-import { actions } from './actions';
-import { completeState } from 'redux-recompose';
+import { createReducer } from 'redux-recompose';
 
-const initialStateDescription = {
-  token: null
+import { actions } from './actions';
+
+const defaultState = {
+  count: 0
 };
 
-const initialState = completeState(initialStateDescription);
+const reducerDescription = {
+  [actions.OTHER_ACTION]: state => state.merge({ count: state.count + 1 })
+};
 
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    default:
-      return state;
-  }
-}
-
-export default reducer;
+export default createReducer(defaultState, reducerDescription);
