@@ -12,9 +12,7 @@ import '../scss/application.scss';
 function App() {
   return (
     <ConnectedRouter history={history}>
-      <Switch>
-        <ConditionalRoute path="/" publicComponent={Login} privateComponent={Main} condition={isLogged} />
-      </Switch>
+      <ConditionalRoute path="/" publicComponent={Login} privateComponent={Main} condition={isLogged} />
     </ConnectedRouter>
   );
 }
