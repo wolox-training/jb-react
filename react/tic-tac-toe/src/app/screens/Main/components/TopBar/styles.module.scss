@@ -1,7 +1,9 @@
+@import 'src/scss/colors';
+
 .navbar {
     align-items: center;
-    background-color: blue;
-    color: white;
+    background-color: $blue;
+    color: $white;
     display: flex;
     height: 50px;
     margin-bottom: 20px;
