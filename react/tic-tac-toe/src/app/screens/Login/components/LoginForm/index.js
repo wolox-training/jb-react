@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import LoginForm from './layout';
 import { connect } from 'react-redux';
 import LoginService from '~services/LoginService';
+import WithLoading from '~components/WithLoading';
 
 class LoginFormContainer extends Component {
   handleSubmit = data => {
-    this.props.dispatch(LoginService.postLogin(data));
+    const { dispatch } = this.props;
+    dispatch(LoginService.postLogin(data));
   }
 
   render() {
@@ -14,6 +16,9 @@ class LoginFormContainer extends Component {
   }
 }
 
-LoginFormContainer = connect()(LoginFormContainer);
+const mapStateToProps = ({ login: { loginDataError, loginDataLoading }}) => ({
+  isLoading: loginDataLoading,
+  hasError: loginDataError
+});
 
-export default LoginFormContainer;
+export default connect(mapStateToProps)(WithLoading(LoginFormContainer));
