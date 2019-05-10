@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import TopBar from './layout';
 import { connect } from 'react-redux'; 
-import { push } from 'connected-react-router';
 import actions from '~redux/login/actions';
 
 class TopBarContainer extends Component {
   handleLogout = () => {
-    const { pushUrl, logout } = this.props;
-    window.localStorage.removeItem('token');
-    pushUrl('/login');
+    const { logout } = this.props;
     logout();
   }
 
@@ -28,7 +25,6 @@ class TopBarContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  pushUrl: url => dispatch(push(url)),
   logout: () => dispatch(actions.logout())
 });
 
