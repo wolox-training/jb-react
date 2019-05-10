@@ -1,7 +1,10 @@
-import { createReducer } from 'redux-recompose';
+import { createReducer, onSetValue } from 'redux-recompose';
+import { actions } from './actions';
 
 const defaultState = {};
 
-const reducerDescription = {};
+const reducerDescription = {
+  [actions.LOGOUT]: onSetValue()
+};
 
 export default createReducer(defaultState, reducerDescription);

@@ -2,22 +2,24 @@ import React, { Component } from 'react';
 import TopBar from './layout';
 import { connect } from 'react-redux'; 
 import { push } from 'connected-react-router';
+import actions from '~redux/login/actions';
 
 class TopBarContainer extends Component {
   handleLogout = () => {
-    const { push } = this.props;
+    const { pushUrl, logout } = this.props;
     window.localStorage.removeItem('token');
-    push('/login');
+    pushUrl('/login');
+    logout();
   }
 
   handleGameHistory = () => {
-    const { push } = this.props;
-    push('/history');
+    const { pushUrl } = this.props;
+    pushUrl('/history');
   }
 
   handleGame = () => {
-    const { push } = this.props;
-    push('/game');
+    const { pushUrl } = this.props;
+    pushUrl('/game');
   }
 
   render() {
@@ -25,4 +27,9 @@ class TopBarContainer extends Component {
   }
 }
 
-export default connect(null, { push })(TopBarContainer);
+const mapDispatchToProps = dispatch => ({
+  pushUrl: url => dispatch(push(url)),
+  logout: () => dispatch(actions.logout())
+});
+
+export default connect(null, mapDispatchToProps)(TopBarContainer);
