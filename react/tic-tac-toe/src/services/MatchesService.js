@@ -1,7 +1,10 @@
 import api from '~config/api';
+import { wrapService } from 'redux-recompose';
 
-const service = {
-  getMatches: () => api.get('/matches')
+const getMatches = () => api.get('/matches');
+
+const services = {
+  getMatches
 };
 
-export default service;
+export default wrapService(services, 'matches', { getMatches: 'matches' });

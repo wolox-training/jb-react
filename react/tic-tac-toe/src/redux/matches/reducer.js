@@ -1,34 +1,7 @@
-import { actions } from './actions';
-import { completeState } from 'redux-recompose';
+import { createReducer } from 'redux-recompose';
 
-const initialStateDescription = {
-  matchesHistory: []
-};
+const defaultState = {};
 
-const initialState = completeState(initialStateDescription);
+const reducerDescription = {};
 
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case actions.GET_MATCHES:
-      return {
-        ...state,
-        matchesHistoryLoading: true
-      };
-    case actions.GET_MATCHES_SUCCESS:
-      return {
-        ...state,
-        matchesHistory: action.payload,
-        matchesHistoryLoading: false
-      };
-    case actions.GET_MATCHES_FAIL:
-      return {
-        ...state,
-        matchesHistoryLoading: false,
-        matchesHistoryError: true
-      };
-    default:
-      return state;
-  }
-}
-
-export default reducer;
+export default createReducer(defaultState, reducerDescription);

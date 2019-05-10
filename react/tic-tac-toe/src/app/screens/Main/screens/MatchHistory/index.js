@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
 import { connect } from 'react-redux';
-import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
 import { arrayOf, func, boolean } from 'prop-types';
 import { matchPropType } from "~constants/propTypes.js"
 import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants/text";
+import matches from '~services/MatchesService';
 
 class MatchHistory extends Component {
   componentDidMount() {
@@ -20,8 +20,8 @@ class MatchHistory extends Component {
   )
 
   render() {
-    const { hasError, isLoading, matchesHistory} = this.props;
-    const matchesLines = hasError || !matchesHistory ? GET_ERROR : matchesHistory.map(this.renderLine);
+    const { hasError, isLoading, matches} = this.props;
+    const matchesLines = hasError || !matches ? GET_ERROR : matches.map(this.renderLine);
     return (
       <div className={styles.container}>
         <div className={styles.matchHistory}>
@@ -42,14 +42,14 @@ MatchHistory.propType = {
   getMatches: func,
 }
 
-const mapStateToProps = ( { matches: {hasError, isLoading, matchesHistory}} ) => ({
-  hasError,
-  isLoading,
-  matchesHistory
+const mapStateToProps = ( { matches: {matchesError, matchesLoading, matches}} ) => ({
+  matchesError,
+  matchesLoading,
+  matches
 });
 
 const mapDispatchToProps = dispatch => ({
-  getMatches: () => dispatch(matchActions.getMatches())
+  getMatches: () => dispatch(matches.getMatches())
 });
 
 export default connect(
