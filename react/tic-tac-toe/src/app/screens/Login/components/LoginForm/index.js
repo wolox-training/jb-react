@@ -14,14 +14,6 @@ class LoginFormContainer extends Component {
   }
 }
 
-LoginFormContainer.defaultProps = {
-  token: null
-};
-
-const mapStateToProps = ({ login: { token } }) => ({
-  token
-});
-
-LoginFormContainer = connect(mapStateToProps)(LoginFormContainer);
+LoginFormContainer = connect()(LoginFormContainer);
 
 export default LoginFormContainer;

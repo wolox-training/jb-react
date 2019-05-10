@@ -1,13 +1,9 @@
 import { createReducer } from 'redux-recompose';
 
-import { actions } from './actions';
-
 const defaultState = {
-  count: 0
+  token: null
 };
 
-const reducerDescription = {
-  [actions.OTHER_ACTION]: state => state.merge({ count: state.count + 1 })
-};
+const reducerDescription = {};
 
 export default createReducer(defaultState, reducerDescription);
