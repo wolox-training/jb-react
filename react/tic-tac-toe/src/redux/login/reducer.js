@@ -1,8 +1,6 @@
 import { createReducer } from 'redux-recompose';
 
-const defaultState = {
-  token: null
-};
+const defaultState = {};
 
 const reducerDescription = {};
 

@@ -16,4 +16,4 @@ const services = {
   postLogin
 };
 
-export default wrapService(services, 'login', { postLogin: 'token' });
+export default wrapService(services, 'login', { postLogin: 'loginData' });
