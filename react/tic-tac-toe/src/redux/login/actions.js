@@ -5,7 +5,7 @@ import { push } from 'connected-react-router';
 export const actions = createTypes(['LOGOUT'], '@@LOGIN');
 
 const actionsCreators = {
-  logout: () => dispatch =>{
+  logout: () => dispatch => {
     window.localStorage.removeItem('token');
     api.setHeaders({
       token: null
