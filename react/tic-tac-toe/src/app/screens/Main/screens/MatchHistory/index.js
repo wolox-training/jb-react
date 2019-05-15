@@ -23,13 +23,11 @@ class MatchHistory extends Component {
     const { hasError, isLoading, matchesHistory} = this.props;
     const matchesLines = hasError || !matchesHistory ? GET_ERROR : matchesHistory.map(this.renderLine);
     return (
-      <div className={styles.container}>
-        <div className={styles.matchHistory}>
+      <div className={styles.matchHistory}>
         {MATCH_HISTORY_TITLE}
-          {isLoading ?
-            <Spinner className={styles.spinner}/>
-            : matchesLines}
-        </div>
+        {isLoading ?
+          <Spinner className={styles.spinner}/>
+          : matchesLines}
       </div>
     );
   }
