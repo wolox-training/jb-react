@@ -1,6 +1,5 @@
 import { createReducer } from 'redux-recompose';
 import { actions } from './actions';
-import { push } from 'connected-react-router';
 import api from '~config/api';
 
 const defaultState = {};
