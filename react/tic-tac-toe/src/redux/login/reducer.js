@@ -1,8 +1,12 @@
-import { createReducer } from 'redux-recompose';
+import { createReducer, completeState } from 'redux-recompose';
 import { actions } from './actions';
 import api from '~config/api';
 
-const defaultState = {};
+const stateDescription = {
+  token: null
+};
+
+const defaultState = completeState(stateDescription);
 
 function onLogout() {
   return state => {
@@ -17,8 +21,8 @@ function onLogout() {
   };
 }
 
-const reducerDescription = {
+const reducer = {
   [actions.LOGOUT]: onLogout()
 };
 
-export default createReducer(defaultState, reducerDescription);
+export default createReducer(defaultState, reducer);

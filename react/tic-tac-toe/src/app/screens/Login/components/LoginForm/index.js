@@ -5,7 +5,8 @@ import LoginService from '~services/LoginService';
 
 class LoginFormContainer extends Component {
   handleSubmit = data => {
-    this.props.dispatch(LoginService.postLogin(data));
+    const { login } = this.props;
+    login(data);
   }
 
   render() {
@@ -14,6 +15,10 @@ class LoginFormContainer extends Component {
   }
 }
 
-LoginFormContainer = connect()(LoginFormContainer);
+const mapDispatchToProps = dispatch => ({
+  login: data => dispatch(LoginService.postLogin(data))
+});
+
+LoginFormContainer = connect(null, mapDispatchToProps)(LoginFormContainer);
 
 export default LoginFormContainer;

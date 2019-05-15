@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import TopBar from './layout';
-import { connect } from 'react-redux'; 
-import actions from '~redux/login/actions';
+import { connect } from 'react-redux';
+import { push } from 'connected-react-router'
+import LoginActions from '~redux/login/actions';
 
 class TopBarContainer extends Component {
   handleLogout = () => {
@@ -25,7 +26,8 @@ class TopBarContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(actions.logout())
+  logout: () => dispatch(LoginActions.logout()),
+  pushUrl: url => dispatch(push(url))
 });
 
 export default connect(null, mapDispatchToProps)(TopBarContainer);

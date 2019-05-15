@@ -1,7 +1,11 @@
-import { createReducer } from 'redux-recompose';
+import { createReducer, completeState } from 'redux-recompose';
 
-const defaultState = {};
+const stateDescription = {
+  matches: []
+};
 
-const reducerDescription = {};
+const defaultState = completeState(stateDescription);
 
-export default createReducer(defaultState, reducerDescription);
+const reducer = {};
+
+export default createReducer(defaultState, reducer);
