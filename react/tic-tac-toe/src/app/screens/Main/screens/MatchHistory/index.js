@@ -5,7 +5,7 @@ import Spinner from 'react-spinkit';
 import { arrayOf, func, boolean } from 'prop-types';
 import { matchPropType } from "~constants/propTypes.js"
 import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants/text";
-import matches from '~services/MatchesService';
+import MatchesService from '~services/MatchesService';
 
 class MatchHistory extends Component {
   componentDidMount() {
@@ -23,13 +23,11 @@ class MatchHistory extends Component {
     const { hasError, isLoading, matches} = this.props;
     const matchesLines = hasError || !matches ? GET_ERROR : matches.map(this.renderLine);
     return (
-      <div className={styles.container}>
-        <div className={styles.matchHistory}>
+      <div className={styles.matchHistory}>
         {MATCH_HISTORY_TITLE}
-          {isLoading ?
-            <Spinner className={styles.spinner}/>
-            : matchesLines}
-        </div>
+        {isLoading ?
+          <Spinner className={styles.spinner}/>
+          : matchesLines}
       </div>
     );
   }
@@ -49,7 +47,7 @@ const mapStateToProps = ( { matches: {matchesError, matchesLoading, matches}} ) 
 });
 
 const mapDispatchToProps = dispatch => ({
-  getMatches: () => dispatch(matches.getMatches())
+  getMatches: () => dispatch(MatchesService.getMatches())
 });
 
 export default connect(

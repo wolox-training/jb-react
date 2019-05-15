@@ -1,7 +1,28 @@
-import { createReducer } from 'redux-recompose';
+import { createReducer, completeState } from 'redux-recompose';
+import { actions } from './actions';
+import api from '~config/api';
 
-const defaultState = {};
+const stateDescription = {
+  token: null
+};
 
-const reducerDescription = {};
+const defaultState = completeState(stateDescription);
 
-export default createReducer(defaultState, reducerDescription);
+function onLogout() {
+  return state => {
+    window.localStorage.removeItem('token');
+    api.setHeaders({
+      token: null
+    });
+    return {
+      ...state,
+      loginData: null
+    };
+  };
+}
+
+const reducer = {
+  [actions.LOGOUT]: onLogout()
+};
+
+export default createReducer(defaultState, reducer);

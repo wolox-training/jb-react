@@ -15,7 +15,7 @@ function LoginForm({ handleSubmit, invalid, hasError }) {
   return (
     <form onSubmit={handleSubmit} className={styles.loginForm}>
       <h2 className={styles.formTitle}>{LOGIN_TITLE}</h2>
-      {hasError ? <h3 className={styles.inputError}>{WRONG_INPUT_TEXT}</h3> : null}
+      {hasError && <h3 className={styles.inputError}>{WRONG_INPUT_TEXT}</h3>}
       <Field
         name="email"
         component={CustomInput}

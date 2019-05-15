@@ -36,9 +36,9 @@ function onSquareClick() {
   };
 }
 
-const reducerDescription = {
+const reducer = {
   [actions.SQUARE_CLICK]: onSquareClick(),
   [actions.HISTORY_CLICK]: onHistoryClick()
 };
 
-export default createReducer(initialState, reducerDescription);
+export default createReducer(initialState, reducer);
