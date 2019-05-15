@@ -1,7 +1,7 @@
 import { createReducer, completeState } from 'redux-recompose';
 
 const stateDescription = {
-  matches: []
+  matches: null
 };
 
 const defaultState = completeState(stateDescription);

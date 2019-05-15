@@ -6,13 +6,8 @@ import WithLoading from '~components/WithLoading';
 
 class LoginFormContainer extends Component {
   handleSubmit = data => {
-<<<<<<< HEAD
-    const { dispatch } = this.props;
-    dispatch(LoginService.postLogin(data));
-=======
     const { login } = this.props;
     login(data);
->>>>>>> recompose
   }
 
   render() {
@@ -21,17 +16,12 @@ class LoginFormContainer extends Component {
   }
 }
 
-<<<<<<< HEAD
-const mapStateToProps = ({ login: { loginDataError, loginDataLoading }}) => ({
-  isLoading: loginDataLoading,
-  hasError: loginDataError
-});
-=======
 const mapDispatchToProps = dispatch => ({
   login: data => dispatch(LoginService.postLogin(data))
 });
 
-LoginFormContainer = connect(null, mapDispatchToProps)(LoginFormContainer);
->>>>>>> recompose
+const mapStateToProps = ({ login: { loginDataLoading }}) => ({
+  isLoading: loginDataLoading
+});
 
-export default connect(mapStateToProps)(WithLoading(LoginFormContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(WithLoading(LoginFormContainer));
