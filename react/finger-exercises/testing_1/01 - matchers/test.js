@@ -14,6 +14,7 @@ describe('01 - matchers', () => {
   it('pow returns an array of power results if array of pairs are sent as arguments', () => {
     expect(pow([4, 3], [5, 2])).toEqual([64, 25]);
   });
-  xit('pow returns undefined in the right position of the result array if pair is not as expected', () => {
+  it('pow returns undefined in the right position of the result array if pair is not as expected', () => {
+    expect(pow([4, 3, 4, 4], [1, 2, 3]).pop()).toBeUndefined();
   });
 });
