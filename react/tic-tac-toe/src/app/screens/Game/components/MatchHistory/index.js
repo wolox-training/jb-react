@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import styles from './styles.module.scss';
-import matches from "~services/MatchesService";
 import { connect } from 'react-redux';
 import matchActions from "~redux/matches/actions";
 import Spinner from 'react-spinkit';
 import { arrayOf, func, boolean } from 'prop-types';
 import { matchPropType } from "~constants/propTypes.js"
-import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants";
+import {PLAYER_ONE, PLAYER_TWO, WINNER, MATCH_HISTORY_TITLE, GET_ERROR} from "~constants/text";
 
 class MatchHistory extends Component {
   componentDidMount() {
-    const { toggleLoading, getMatches } = this.props;
-    toggleLoading();
-    matches.getMatches().then(response => getMatches(response.data));
+    const { getMatches } = this.props;
+    getMatches();
   }
 
   renderLine = data => (
@@ -40,16 +38,16 @@ MatchHistory.propType = {
   isLoading: boolean,
   matchesHistory: arrayOf(matchPropType),
   getMatches: func,
-  toggleLoading: func
 }
 
-const mapStateToProps = ( { matches: {isLoading, matchesHistory}} ) => ({
+const mapStateToProps = ( { matches: {hasError, isLoading, matchesHistory}} ) => ({
+  hasError,
   isLoading,
   matchesHistory
 });
+
 const mapDispatchToProps = dispatch => ({
-  getMatches: data => dispatch(matchActions.getMatches(data)),
-  toggleLoading: () => dispatch(matchActions.toggleLoading())
+  getMatches: () => dispatch(matchActions.getMatches())
 });
 
 export default connect(

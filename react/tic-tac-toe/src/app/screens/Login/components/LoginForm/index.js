@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 import LoginForm from './layout';
-import { reduxForm } from 'redux-form';
+import loginActions from "~redux/login/actions";
+import { connect } from 'react-redux';
 
 class LoginFormContainer extends Component {
-  handleSubmit = values => {
-    // TODO: add submit handling
+  handleSubmit = data => {
+    const { login } = this.props;;
+    login(data);
   }
 
   render() {
-    const { invalid } = this.props;
-    return <LoginForm handleSubmit={this.handleSubmit} invalid={invalid} />;
+    const { hasError } = this.props;
+    return <LoginForm onSubmit={this.handleSubmit} hasError={hasError}/>;
   }
 }
 
-LoginFormContainer = reduxForm({
-  form: 'login'
-})(LoginFormContainer);
+const mapStateToProps = ({ login: { hasError } }) => ({
+  hasError
+});
+
+const mapDispatchToProps = dispatch => ({
+  login: values => dispatch(loginActions.login(values)) 
+});
+
+LoginFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginFormContainer);
 
 export default LoginFormContainer;

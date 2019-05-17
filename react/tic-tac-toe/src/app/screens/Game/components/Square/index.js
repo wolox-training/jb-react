@@ -17,7 +17,7 @@ class Square extends Component {
       <button type="button" className={styles.square} onClick={this.clickHandler}>
         {current.squares[id]}
       </button>
-      );
+    );
   }
 }
 

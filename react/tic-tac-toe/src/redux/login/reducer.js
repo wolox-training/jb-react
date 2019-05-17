@@ -1,25 +1,24 @@
 import { actions } from './actions';
 
 const initialState = {
-  hasError: false,
   isLoading: false,
-  matchesHistory: []
+  hasError: false
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case actions.GET_MATCHES:
+    case actions.LOGIN:
       return {
         ...state,
         isLoading: true
       };
-    case actions.GET_MATCHES_SUCCESS:
+    case actions.LOGIN_SUCESS:
       return {
         ...state,
-        matchesHistory: action.payload,
-        isLoading: false
+        isLoading: false,
+        hasError: false
       };
-    case actions.GET_MATCHES_FAIL:
+    case actions.LOGIN_FAIL:
       return {
         ...state,
         isLoading: false,

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { JUMP_TEXT, GAME_START_TEXT } from "~constants";
+import { JUMP_TEXT, GAME_START_TEXT } from "~constants/text";
 import { connect } from 'react-redux';
 import { number } from 'prop-types'
 import gameActionsCreator from '~redux/game/actions'
