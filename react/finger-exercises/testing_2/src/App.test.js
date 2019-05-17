@@ -10,8 +10,8 @@ configure({ adapter: new Adapter() });
 describe('App', () => {
   it('renders without crashing', () => {
     // i don't know which way is better, this or the above
-    //const root = document.createElement('div');
-    //ReactDOM.render(<App />, root);
+    // const root = document.createElement('div');
+    // ReactDOM.render(<App />, root);
     const wrapper = mount(<App />);
     expect(wrapper.children().length).toBeGreaterThanOrEqual(1);
   });
