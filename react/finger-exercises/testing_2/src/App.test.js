@@ -16,7 +16,8 @@ describe('App', () => {
     expect(wrapper.children().length).toBeGreaterThanOrEqual(1);
   });
 
-  xit('matches the snapshot', () => {
+  it('matches the snapshot', () => {
     const tree = mount(<App />);
+    expect(toJson(tree)).toMatchSnapshot();
   });
 });
