@@ -8,9 +8,12 @@ import UserRow from './index';
 
 configure({ adapter: new Adapter() });
 
-describe('UserRow', () => {
-  xit('button change text when state is changed', () => {
+describe('UserRow', ()  => {
+  it('button change text when state is changed', async () => {
     const wrapper = mount(<UserRow user={{ id:1, name: 'James', active: true }} />);
+    expect(wrapper.find('button').text()).toMatch('Desactivar');
+    wrapper.setState({ isActive: false });
+    expect(wrapper.find('button').text()).toMatch('Activar');
   });
   xit('button change text when clicked', () => {
     const wrapper = mount(<UserRow user={{ id:1, name: 'James', active: true }} />);
