@@ -1,9 +1,9 @@
 .match-history {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-}
+  margin: auto;
 
-.spinner {
-  align-self: center;
+  .spinner {
+    align-self: center;
+  }
 }

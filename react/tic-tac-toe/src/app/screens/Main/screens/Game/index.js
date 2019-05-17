@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import styles from './styles.module.scss';
 import Board from './components/Board';
-import MatchHistory from './components/MatchHistory';
 import JumpText from './components/JumpText';
 import { calculateWinner } from '~utils';
 import { NEXT_PLAYER, WINNER, TIC, TAC } from '~constants/text';
@@ -29,7 +28,6 @@ class Game extends Component {
           {status}
           <ol>{moves}</ol>
         </div>
-        <MatchHistory />
       </div>
     );
   }

@@ -24,7 +24,7 @@ class MatchHistory extends Component {
     const matchesLines = hasError || !matchesHistory ? GET_ERROR : matchesHistory.map(this.renderLine);
     return (
       <div className={styles.matchHistory}>
-      {MATCH_HISTORY_TITLE}
+        {MATCH_HISTORY_TITLE}
         {isLoading ?
           <Spinner className={styles.spinner}/>
           : matchesLines}

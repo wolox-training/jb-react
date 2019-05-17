@@ -1,9 +1,17 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
-function ConditionalRoute({ component: Component, condition, redirect, ...rest }) {
+function ConditionalRoute({
+  privateComponent: PrivateComponent,
+  publicComponent: PublicComponent,
+  condition,
+  ...rest
+}) {
   return (
-    <Route {...rest} render={props => (condition ? <Component {...props} /> : <Redirect to={redirect} />)} />
+    <Route
+      {...rest}
+      render={props => (condition() ? <PrivateComponent {...props} /> : <PublicComponent {...props} />)}
+    />
   );
 }
 
