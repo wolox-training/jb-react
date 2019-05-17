@@ -22,7 +22,10 @@ describe('UserRow', ()  => {
     expect(wrapper.find('button').text()).toMatch('Activar');
 
   });
-  xit('executing toggleActive method changes isActive state', () => {
+  it('executing toggleActive method changes isActive state', () => {
     const wrapper = mount(<UserRow user={{ id: 1, name: 'James', active: true }} />);
+    expect(wrapper.state('isActive')).toBeTruthy();
+    wrapper.instance().toggleActive();
+    expect(wrapper.state('isActive')).toBeFalsy();
   });
 });
