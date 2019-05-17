@@ -8,7 +8,12 @@ import App from './App';
 
 configure({ adapter: new Adapter() });
 describe('App', () => {
-  xit('renders without crashing', () => {
+  it('renders without crashing', () => {
+    // i don't know which way is better, this or the above
+    //const root = document.createElement('div');
+    //ReactDOM.render(<App />, root);
+    const wrapper = mount(<App />);
+    expect(wrapper.children().length).toBeGreaterThanOrEqual(1);
   });
 
   xit('matches the snapshot', () => {
